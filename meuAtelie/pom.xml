@@ -12,7 +12,7 @@
 	<artifactId>meuAtelie</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>meuAtelie</name>
-	<description>Plataforma voltada para os artesãos e clientes que gostam de comprar itens de decoração. </description>
+	<description>Plataforma voltada para os artesãos e clientes que gostam de comprar itens de decoração recicláveis. </description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
