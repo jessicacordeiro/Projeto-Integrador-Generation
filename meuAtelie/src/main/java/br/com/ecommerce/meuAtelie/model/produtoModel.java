@@ -3,9 +3,11 @@ package br.com.ecommerce.meuAtelie.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -26,7 +28,6 @@ public class produtoModel {
 	@NotNull
 	private double precoProduto;
 	
-	
 	private int quantidadeProduto;
 	
 	@NotNull
@@ -36,6 +37,13 @@ public class produtoModel {
 	@Size(min = 0, max =1000)
 	private String avaliacaoProduto;
 
+	@OneToOne
+	@JsonIgnoreProperties("produto")
+	private CategoriaModel categoria;
+	
+	
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -91,5 +99,14 @@ public class produtoModel {
 	public void setAvaliacaoProduto(String avaliacaoProduto) {
 		this.avaliacaoProduto = avaliacaoProduto;
 	}
+	
+	public CategoriaModel getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaModel categoria) {
+		this.categoria = categoria;
+	}
+
 
 }
