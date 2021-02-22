@@ -3,6 +3,7 @@ package br.com.ecommerce.meuAtelie.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -41,8 +42,9 @@ public class produtoModel {
 	@JsonIgnoreProperties("produto")
 	private CategoriaModel categoria;
 	
-	
-	
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private UsuarioModel usuario;
 	
 	public long getId() {
 		return id;
@@ -107,6 +109,16 @@ public class produtoModel {
 	public void setCategoria(CategoriaModel categoria) {
 		this.categoria = categoria;
 	}
+	
+
+	public UsuarioModel getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioModel usuario) {
+		this.usuario = usuario;
+	}
+
 
 
 }
