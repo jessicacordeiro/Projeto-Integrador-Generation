@@ -1,17 +1,14 @@
 package br.com.ecommerce.meuAtelie.model;
 
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.websocket.OnError;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
@@ -20,23 +17,30 @@ import com.sun.istack.NotNull;
 public class UsuarioModel {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@NotNull
-	@Size(min = 0, max =80)
+	@Size(min = 3, max =80, message = "Nome deve ser inserido, de 3 até 80 caracteres" )
 	private String nomeCompleto;
 	
 	@NotNull
-	@Size(min = 0, max =45)
+	@Size(min = 2, max =200, message = "Endereço deve ser inserido, de 2 até 200 caracteres" )
+	private String endereco;
+	
+	@NotNull
+	private long cpf;
+	
+	@NotNull
+	@Size(min = 3, max =45, message = "Usúario deve ser inserido, de 3 até 45 caracteres")
 	private String nomeUsuario;
 	
 	@NotNull
-	@Size(min = 0, max =45)
+	@Size(min = 3, max =45,message = "Email deve ser inserido, de 3 até 45 caracteres")
 	private String email;
 	
 	@NotNull
-	@Size(min = 0, max =45)
+	@Size(min = 6, max =8,message = "senha deve ser inserido, de 6 até 8 caracteres")
 	private String senha;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
@@ -87,8 +91,25 @@ public class UsuarioModel {
 		return produto;
 	}
 
-	public void setProduto(List<produtoModel> produto) {
+	public void setProduto(List<produtoModel> produto)
+ {
 		this.produto = produto;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public long getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(long cpf) {
+		this.cpf = cpf;
 	}
 	
 	
