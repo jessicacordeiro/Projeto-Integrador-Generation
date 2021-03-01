@@ -1,11 +1,14 @@
 package br.com.ecommerce.meuAtelie.model;
 
-import javax.persistence.Entity;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -46,6 +49,10 @@ public class produtoModel {
 	@JsonIgnoreProperties("produto")
 	private UsuarioModel usuario;
 	
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("produto")
+	private List<VendaModel> venda;
+
 	public long getId() {
 		return id;
 	}
@@ -101,7 +108,7 @@ public class produtoModel {
 	public void setAvaliacaoProduto(String avaliacaoProduto) {
 		this.avaliacaoProduto = avaliacaoProduto;
 	}
-	
+
 	public CategoriaModel getCategoria() {
 		return categoria;
 	}
@@ -109,7 +116,6 @@ public class produtoModel {
 	public void setCategoria(CategoriaModel categoria) {
 		this.categoria = categoria;
 	}
-	
 
 	public UsuarioModel getUsuario() {
 		return usuario;
@@ -119,6 +125,12 @@ public class produtoModel {
 		this.usuario = usuario;
 	}
 
+	public List<VendaModel> getVenda() {
+		return venda;
+	}
 
+	public void setVenda(List<VendaModel> venda) {
+		this.venda = venda;
+	}
 
 }

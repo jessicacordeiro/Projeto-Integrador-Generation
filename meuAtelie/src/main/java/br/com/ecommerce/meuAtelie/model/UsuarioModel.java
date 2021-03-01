@@ -46,7 +46,11 @@ public class UsuarioModel {
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
 	private List<produtoModel> produto;
-
+	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
+	private List<VendaModel> venda;
+	
 	public int getId() {
 		return id;
 	}
@@ -112,6 +116,12 @@ public class UsuarioModel {
 		this.cpf = cpf;
 	}
 	
-	
+	public List<VendaModel> getVenda() {
+		return venda;
+	}
+
+	public void setVenda(List<VendaModel> venda) {
+		this.venda = venda;
+	}
 
 }
