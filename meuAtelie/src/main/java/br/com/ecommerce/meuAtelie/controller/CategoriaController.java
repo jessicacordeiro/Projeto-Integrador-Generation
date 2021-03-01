@@ -21,7 +21,7 @@ import br.com.ecommerce.meuAtelie.model.CategoriaModel;
 import br.com.ecommerce.meuAtelie.repository.CategoriaRepository;
 
 @RestController
-@RequestMapping ("/Categoria")
+@RequestMapping ("/categoria")
 @CrossOrigin ("*")
 public class CategoriaController {
 	@Autowired 
