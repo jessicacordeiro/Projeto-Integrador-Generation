@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name = "tb_categoria")
+@Table(name = "tb_categoria")ders
 public class CategoriaModel {
 	
 	@Id
