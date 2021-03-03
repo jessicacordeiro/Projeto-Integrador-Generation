@@ -1,6 +1,9 @@
 package br.com.ecommerce.meuAtelie.model;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +25,7 @@ public class VendaModel {
 	
 	@ManyToOne
 	@JsonIgnoreProperties("venda")
-	private produtoModel produto;
+	private List<produtoModel> produto = new ArrayList<>();
 	
 	@ManyToOne
 	@JsonIgnoreProperties("venda")
@@ -44,11 +47,11 @@ public class VendaModel {
 		this.date = date;
 	}
 
-	public produtoModel getProduto() {
+	public List<produtoModel> getProduto() {
 		return produto;
 	}
 
-	public void setProduto(produtoModel produto) {
+	public void setProduto(List<produtoModel> produto) {
 		this.produto = produto;
 	}
 
@@ -59,5 +62,7 @@ public class VendaModel {
 	public void setUsuario(UsuarioModel usuario) {
 		this.usuario = usuario;
 	}
+
+	
 
 }
