@@ -1,9 +1,6 @@
 package br.com.ecommerce.meuAtelie.model;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,17 +13,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "tb_venda")
 public class VendaModel {
-	
+
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	private Date date = new java.sql.Date(System.currentTimeMillis());
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("venda")
-	private List<produtoModel> produto = new ArrayList<>();
-	
+	private produtoModel produto;
+
 	@ManyToOne
 	@JsonIgnoreProperties("venda")
 	private UsuarioModel usuario;
@@ -47,11 +44,11 @@ public class VendaModel {
 		this.date = date;
 	}
 
-	public List<produtoModel> getProduto() {
+	public produtoModel getProduto() {
 		return produto;
 	}
 
-	public void setProduto(List<produtoModel> produto) {
+	public void setProduto(produtoModel produto) {
 		this.produto = produto;
 	}
 
@@ -62,7 +59,5 @@ public class VendaModel {
 	public void setUsuario(UsuarioModel usuario) {
 		this.usuario = usuario;
 	}
-
-	
 
 }

@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -49,11 +50,14 @@ public class produtoModel {
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private CategoriaModel categoria;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private UsuarioModel usuario;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "tb_venda", joinColumns = @JoinColumn(name = "produto_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
-	@JsonIgnoreProperties("produtos")
-	private List<UsuarioModel> usuario = new ArrayList<>();
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("produto")
+	private List<VendaModel> venda;
 
 	public long getId() {
 		return id;
@@ -77,6 +81,14 @@ public class produtoModel {
 
 	public void setDescricaoProduto(String descricaoProduto) {
 		this.descricaoProduto = descricaoProduto;
+	}
+
+	public UsuarioModel getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioModel usuario) {
+		this.usuario = usuario;
 	}
 
 	public double getPrecoProduto() {
@@ -119,13 +131,15 @@ public class produtoModel {
 		this.categoria = categoria;
 	}
 
-	public List<UsuarioModel> getUsuario() {
-		return usuario;
+	public List<VendaModel> getVenda() {
+		return venda;
 	}
 
-	public void setUsuario(List<UsuarioModel> usuario) {
-		this.usuario = usuario;
+	public void setVenda(List<VendaModel> venda) {
+		this.venda = venda;
 	}
+
+
 	
 	
 	
