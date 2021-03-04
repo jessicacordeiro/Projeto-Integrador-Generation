@@ -20,7 +20,7 @@ public class UsuarioModel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	
 	@NotNull
 	@Size(min = 3, max =80, message = "Nome deve ser inserido, de 3 até 80 caracteres" )
@@ -42,7 +42,6 @@ public class UsuarioModel {
 	private String email;
 	
 	@NotNull
-	@Size(min = 6, max =8,message = "senha deve ser inserido, de 6 até 8 caracteres")
 	private String senha;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
@@ -53,11 +52,11 @@ public class UsuarioModel {
 	@JsonIgnoreProperties("usuario")
 	private List<produtoModel> produto;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -109,6 +108,14 @@ public class UsuarioModel {
 		this.senha = senha;
 	}
 
+	public List<VendaModel> getVenda() {
+		return venda;
+	}
+
+	public void setVenda(List<VendaModel> venda) {
+		this.venda = venda;
+	}
+
 	public List<produtoModel> getProduto() {
 		return produto;
 	}
@@ -117,11 +124,5 @@ public class UsuarioModel {
 		this.produto = produto;
 	}
 
-	public List<VendaModel> getVenda() {
-		return venda;
-	}
-
-	public void setVenda(List<VendaModel> venda) {
-		this.venda = venda;
-	}
+	
 }

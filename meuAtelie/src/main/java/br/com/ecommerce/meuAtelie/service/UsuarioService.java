@@ -1,9 +1,8 @@
 package br.com.ecommerce.meuAtelie.service;
 
 import java.nio.charset.Charset;
+import org.apache.commons.codec.binary.Base64;
 import java.util.Optional;
-
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,33 +13,33 @@ import br.com.ecommerce.meuAtelie.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
-
 	@Autowired
-	private UsuarioRepository repository;
+	UsuarioRepository usuarioRepository;
 
-	public UsuarioModel CadastrarUsuario(UsuarioModel usuario) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String senhaEncoder = encoder.encode(usuario.getSenha());
-		usuario.setSenha(senhaEncoder);
-		return repository.save(usuario);
+	public UsuarioModel cadastrarUsuario(UsuarioModel usuario) {
+		BCryptPasswordEncoder enconder = new BCryptPasswordEncoder();
+		String senhaEnconder = enconder.encode(usuario.getSenha());
+		usuario.setSenha(senhaEnconder);
+		return usuarioRepository.save(usuario);
 	}
 
-	public Optional<UsuarioLogin> Logar(Optional<UsuarioLogin> User) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		Optional<UsuarioModel> usuario = repository.findByNomeUsuario(User.get().getUsuario());
-		if (usuario.isPresent()) {
-			if (encoder.matches(User.get().getSenha(), usuario.get().getSenha())) {
-				String auth = User.get().getUsuario() + ":" + User.get().getSenha();
-				byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
-				String authHeader = "Basic " + new String(encodedAuth);
-
-				User.get().setToken(authHeader);
-				User.get().setNome(usuario.get().getNomeCompleto());
-
-				return User;
+	public Optional<UsuarioLogin> Logar(Optional<UsuarioLogin> user) {
+		BCryptPasswordEncoder enconder = new BCryptPasswordEncoder();
+		Optional<UsuarioModel> nomeUsuario = usuarioRepository.findByNomeUsuario(user.get().getNomeUsuario());
+		
+		if (nomeUsuario.isPresent()) {
+			if (enconder.matches(user.get().getSenha(), nomeUsuario.get().getSenha())) {
+				
+				String auth = user.get().getNomeUsuario() + ":" + user.get().getSenha();
+				byte[] encodeAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
+				String authHeader = "Basic " + new String(encodeAuth);
+				
+				user.get().setToken(authHeader);
+				user.get().setNome(nomeUsuario.get().getNomeCompleto());
+				return user;
 			}
 		}
-
 		return null;
 	}
+
 }
