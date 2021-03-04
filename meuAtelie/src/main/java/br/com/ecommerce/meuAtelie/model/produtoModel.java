@@ -44,7 +44,12 @@ public class produtoModel {
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private CategoriaModel categoria;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private UsuarioModel usuario;
 
+<<<<<<< HEAD
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private UsuarioModel usuario;
@@ -52,6 +57,11 @@ public class produtoModel {
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("produto")
     private List<VendaModel> venda = new ArrayList<>();
+=======
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("produto")
+	private List<VendaModel> venda;
+>>>>>>> e55d5ef08ad9c9e22c4c77d1a52ee2c78b00c28b
 
 	public long getId() {
 		return id;
@@ -75,6 +85,14 @@ public class produtoModel {
 
 	public void setDescricaoProduto(String descricaoProduto) {
 		this.descricaoProduto = descricaoProduto;
+	}
+
+	public UsuarioModel getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioModel usuario) {
+		this.usuario = usuario;
 	}
 
 	public double getPrecoProduto() {
@@ -117,6 +135,7 @@ public class produtoModel {
 		this.categoria = categoria;
 	}
 
+<<<<<<< HEAD
 	public UsuarioModel getUsuario() {
 		return usuario;
 	}
@@ -133,4 +152,18 @@ public class produtoModel {
 		this.venda = venda;
 	}
 
+=======
+	public List<VendaModel> getVenda() {
+		return venda;
+	}
+
+	public void setVenda(List<VendaModel> venda) {
+		this.venda = venda;
+	}
+
+
+	
+	
+	
+>>>>>>> e55d5ef08ad9c9e22c4c77d1a52ee2c78b00c28b
 }
