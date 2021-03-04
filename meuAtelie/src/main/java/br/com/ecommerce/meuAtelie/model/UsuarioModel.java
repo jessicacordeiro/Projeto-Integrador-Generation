@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name = "tb_usuario")
+@Table(name = "tb_usuario")//teste commit
 public class UsuarioModel {
 	
 	@Id
