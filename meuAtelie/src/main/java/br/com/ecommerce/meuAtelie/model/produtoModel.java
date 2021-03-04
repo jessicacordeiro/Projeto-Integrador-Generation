@@ -4,17 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
@@ -49,10 +45,13 @@ public class produtoModel {
 	@JsonIgnoreProperties("produto")
 	private CategoriaModel categoria;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "tb_venda", joinColumns = @JoinColumn(name = "produto_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
-	@JsonIgnoreProperties("produtos")
-	private List<UsuarioModel> usuario = new ArrayList<>();
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private UsuarioModel usuario;
+	
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("produto")
+    private List<VendaModel> venda = new ArrayList<>();
 
 	public long getId() {
 		return id;
@@ -118,14 +117,20 @@ public class produtoModel {
 		this.categoria = categoria;
 	}
 
-	public List<UsuarioModel> getUsuario() {
+	public UsuarioModel getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(List<UsuarioModel> usuario) {
+	public void setUsuario(UsuarioModel usuario) {
 		this.usuario = usuario;
 	}
-	
-	
-	
+
+	public List<VendaModel> getVenda() {
+		return venda;
+	}
+
+	public void setVenda(List<VendaModel> venda) {
+		this.venda = venda;
+	}
+
 }
