@@ -7,27 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-<<<<<<< HEAD
-=======
-
->>>>>>> e55d5ef08ad9c9e22c4c77d1a52ee2c78b00c28b
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_venda")
 public class VendaModel {
-<<<<<<< HEAD
-		
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) private long id;
-
-	private Date date = new java.sql.Date(System.currentTimeMillis());
-		
-	@ManyToOne
-	@JsonIgnoreProperties("venda")
-	private produtoModel produto;
-		
-=======
-
+	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -38,7 +23,6 @@ public class VendaModel {
 	@JsonIgnoreProperties("venda")
 	private produtoModel produto;
 
->>>>>>> e55d5ef08ad9c9e22c4c77d1a52ee2c78b00c28b
 	@ManyToOne
 	@JsonIgnoreProperties("venda")
 	private UsuarioModel usuario;
@@ -74,10 +58,4 @@ public class VendaModel {
 	public void setUsuario(UsuarioModel usuario) {
 		this.usuario = usuario;
 	}
-<<<<<<< HEAD
 }
-
-=======
-
-}
->>>>>>> e55d5ef08ad9c9e22c4c77d1a52ee2c78b00c28b

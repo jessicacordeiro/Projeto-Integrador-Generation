@@ -1,6 +1,5 @@
 package br.com.ecommerce.meuAtelie.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -17,6 +16,7 @@ import com.sun.istack.NotNull;
 @Entity
 @Table(name = "tb_produto")
 public class produtoModel {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -48,20 +48,10 @@ public class produtoModel {
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private UsuarioModel usuario;
-
-<<<<<<< HEAD
-	@ManyToOne
-	@JsonIgnoreProperties("produto")
-	private UsuarioModel usuario;
 	
-	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("produto")
-    private List<VendaModel> venda = new ArrayList<>();
-=======
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("produto")
 	private List<VendaModel> venda;
->>>>>>> e55d5ef08ad9c9e22c4c77d1a52ee2c78b00c28b
 
 	public long getId() {
 		return id;
@@ -134,36 +124,4 @@ public class produtoModel {
 	public void setCategoria(CategoriaModel categoria) {
 		this.categoria = categoria;
 	}
-
-<<<<<<< HEAD
-	public UsuarioModel getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(UsuarioModel usuario) {
-		this.usuario = usuario;
-	}
-
-	public List<VendaModel> getVenda() {
-		return venda;
-	}
-
-	public void setVenda(List<VendaModel> venda) {
-		this.venda = venda;
-	}
-
-=======
-	public List<VendaModel> getVenda() {
-		return venda;
-	}
-
-	public void setVenda(List<VendaModel> venda) {
-		this.venda = venda;
-	}
-
-
-	
-	
-	
->>>>>>> e55d5ef08ad9c9e22c4c77d1a52ee2c78b00c28b
 }

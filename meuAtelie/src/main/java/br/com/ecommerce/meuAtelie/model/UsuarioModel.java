@@ -4,17 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
-=======
-import javax.persistence.ManyToMany;
->>>>>>> e55d5ef08ad9c9e22c4c77d1a52ee2c78b00c28b
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
@@ -49,22 +45,13 @@ public class UsuarioModel {
 	@Size(min = 6, max =8,message = "senha deve ser inserido, de 6 até 8 caracteres")
 	private String senha;
 	
-<<<<<<< HEAD
-	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("usuario")
-	private List<produtoModel> produto = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
 	private List<VendaModel> venda = new ArrayList<>();
-=======
-		
+
 	@OneToMany(mappedBy = "usuario" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnoreProperties("usuario")
 	private List<produtoModel> produto;
-
->>>>>>> e55d5ef08ad9c9e22c4c77d1a52ee2c78b00c28b
 
 	public int getId() {
 		return id;
