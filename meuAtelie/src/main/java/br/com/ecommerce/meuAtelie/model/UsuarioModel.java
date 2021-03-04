@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -48,9 +49,9 @@ public class UsuarioModel {
 	private String senha;
 	
 		
-	@ManyToMany(mappedBy = "usuario" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "usuario" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnoreProperties("usuario")
-	private List<produtoModel> produto = new ArrayList<>();
+	private List<produtoModel> produto;
 
 
 	public int getId() {
