@@ -1,5 +1,6 @@
 package br.com.ecommerce.meuAtelie.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "tb_produto")
-public class produtoModel {
+public class ProdutoModel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,8 +51,8 @@ public class produtoModel {
 	private UsuarioModel usuario;
 	
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("produto")
-	private List<VendaModel> venda;
+	@JsonIgnoreProperties({ "produto", "usuario" })
+	private List<VendaModel> vendas = new ArrayList<>();
 
 	public long getId() {
 		return id;
@@ -124,4 +125,13 @@ public class produtoModel {
 	public void setCategoria(CategoriaModel categoria) {
 		this.categoria = categoria;
 	}
+
+	public List<VendaModel> getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(List<VendaModel> vendas) {
+		this.vendas = vendas;
+	}
+	
 }
