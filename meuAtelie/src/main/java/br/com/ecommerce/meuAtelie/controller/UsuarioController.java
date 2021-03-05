@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.ecommerce.meuAtelie.model.UsuarioLogin;
 import br.com.ecommerce.meuAtelie.model.UsuarioModel;
 import br.com.ecommerce.meuAtelie.repository.UsuarioRepository;
@@ -26,8 +25,10 @@ import br.com.ecommerce.meuAtelie.service.UsuarioService;
 @RequestMapping("/usuario")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
+	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
 	@Autowired
 	private UsuarioService usuarioService;
 	
@@ -40,21 +41,20 @@ public class UsuarioController {
 	public ResponseEntity<UsuarioModel> GetById(@PathVariable long id) {
 		return usuarioRepository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
+	
 	@GetMapping("/nomeCompleto/{nomeCompleto}")
 	public ResponseEntity<List<UsuarioModel>> GetByNomeCompleto(@PathVariable String nomeCompleto) {
 		return ResponseEntity.ok(usuarioRepository.findAllByNomeCompletoContainingIgnoreCase(nomeCompleto));
 	}
-	//@PostMapping
-	//public ResponseEntity<UsuarioModel> creatNewUser(@Valid @RequestBody UsuarioModel usuario) {
-	//	return ResponseEntity.status(HttpStatus.CREATED).body(usuarioRepository.save(usuario));
-	//}
+	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<UsuarioModel> post(@Valid @RequestBody UsuarioModel usuario){
-		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.CadastrarUsuario(usuario));
+	public ResponseEntity<UsuarioModel> Post(@RequestBody UsuarioModel usuario){
+	return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.cadastrarUsuario(usuario));
 	}
+	
 	@PostMapping("/logar")
-	public ResponseEntity<UsuarioLogin> Autentication (@Valid @RequestBody Optional<UsuarioLogin> usuario){
-		return usuarioService.Logar(usuario).map(resp -> ResponseEntity.ok(resp))
+	public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user){
+		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 	
@@ -62,6 +62,7 @@ public class UsuarioController {
 	public ResponseEntity<UsuarioModel> put(@Valid @RequestBody UsuarioModel usuario) {
 		return ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.save(usuario));
 	}
+	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		usuarioRepository.deleteById(id);
