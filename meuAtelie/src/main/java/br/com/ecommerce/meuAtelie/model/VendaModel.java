@@ -20,11 +20,12 @@ public class VendaModel {
 	private Date date = new java.sql.Date(System.currentTimeMillis());
 
 	@ManyToOne
-	@JsonIgnoreProperties("venda")
-	private produtoModel produto;
+	@JsonIgnoreProperties({ "vendas","usuario" })
+	private ProdutoModel produto;
 
 	@ManyToOne
 	@JsonIgnoreProperties("venda")
+	//@JsonIgnore
 	private UsuarioModel usuario;
 
 	public long getId() {
@@ -43,11 +44,11 @@ public class VendaModel {
 		this.date = date;
 	}
 
-	public produtoModel getProduto() {
+	public ProdutoModel getProduto() {
 		return produto;
 	}
 
-	public void setProduto(produtoModel produto) {
+	public void setProduto(ProdutoModel produto) {
 		this.produto = produto;
 	}
 

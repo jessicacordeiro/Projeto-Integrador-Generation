@@ -36,7 +36,7 @@ public class VendaController {
 	}
 
 	@PostMapping
-	public ResponseEntity<VendaModel> creatNewUser(@Valid @RequestBody VendaModel venda) {
+	public ResponseEntity<VendaModel> criarNovaVenda(@Valid @RequestBody VendaModel venda) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(vendaRepository.save(venda));
 	}
 
