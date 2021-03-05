@@ -45,12 +45,12 @@ public class UsuarioModel {
 	private String senha;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("usuario")
-	private List<VendaModel> venda = new ArrayList<>();
+	@JsonIgnoreProperties({ "usuario", "produto" })
+	private List<VendaModel> vendas = new ArrayList<>();
 
 	@OneToMany(mappedBy = "usuario" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JsonIgnoreProperties("usuario")
-	private List<produtoModel> produto;
+	@JsonIgnoreProperties({ "usuario"})
+	private List<ProdutoModel> produto = new ArrayList<>();
 
 	public long getId() {
 		return id;
@@ -109,18 +109,18 @@ public class UsuarioModel {
 	}
 
 	public List<VendaModel> getVenda() {
-		return venda;
+		return vendas;
 	}
 
-	public void setVenda(List<VendaModel> venda) {
-		this.venda = venda;
+	public void setVenda(List<VendaModel> vendas) {
+		this.vendas = vendas;
 	}
 
-	public List<produtoModel> getProduto() {
+	public List<ProdutoModel> getProduto() {
 		return produto;
 	}
 
-	public void setProduto(List<produtoModel> produto) {
+	public void setProduto(List<ProdutoModel> produto) {
 		this.produto = produto;
 	}
 
