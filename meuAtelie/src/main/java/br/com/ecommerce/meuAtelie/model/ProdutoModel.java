@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
+import br.com.ecommerce.meuAtelie.model.util.CategoriaAceitas;
+import javax.persistence.EnumType;
 
 @Entity
 @Table(name = "tb_produto")
@@ -21,7 +24,9 @@ public class ProdutoModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-
+	
+	private @Enumerated(EnumType.STRING) CategoriaAceitas categorias;
+	
 	@NotNull
 	@Size(min = 0, max = 50)
 	private String nomeProduto;
@@ -41,10 +46,6 @@ public class ProdutoModel {
 
 	@Size(min = 0, max = 1000)
 	private String avaliacaoProduto;
-
-	@ManyToOne
-	@JsonIgnoreProperties("produto")
-	private CategoriaModel categoria;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
@@ -118,14 +119,6 @@ public class ProdutoModel {
 		this.avaliacaoProduto = avaliacaoProduto;
 	}
 
-	public CategoriaModel getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(CategoriaModel categoria) {
-		this.categoria = categoria;
-	}
-
 	public List<VendaModel> getVendas() {
 		return vendas;
 	}
@@ -133,5 +126,12 @@ public class ProdutoModel {
 	public void setVendas(List<VendaModel> vendas) {
 		this.vendas = vendas;
 	}
-	
+
+	public CategoriaAceitas getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(CategoriaAceitas categorias) {
+		this.categorias = categorias;
+	}
 }

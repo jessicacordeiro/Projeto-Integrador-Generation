@@ -3,7 +3,7 @@ package br.com.ecommerce.meuAtelie.model;
 public class UsuarioLogin {
 
 	private String nome;
-	private String nomeUsuario;
+	private String usuario;
 	private String senha;
 	private String token;
 	
@@ -13,11 +13,11 @@ public class UsuarioLogin {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getNomeUsuario() {
-		return nomeUsuario;
+	public String getUsuario() {
+		return usuario;
 	}
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
+	public void setUsuario(String nomeUsuario) {
+		this.usuario = nomeUsuario;
 	}
 	public String getSenha() {
 		return senha;

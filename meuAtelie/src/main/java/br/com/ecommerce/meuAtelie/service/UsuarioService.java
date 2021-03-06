@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import br.com.ecommerce.meuAtelie.model.UsuarioLogin;
 import br.com.ecommerce.meuAtelie.model.UsuarioModel;
 import br.com.ecommerce.meuAtelie.repository.UsuarioRepository;
@@ -25,12 +24,12 @@ public class UsuarioService {
 
 	public Optional<UsuarioLogin> Logar(Optional<UsuarioLogin> user) {
 		BCryptPasswordEncoder enconder = new BCryptPasswordEncoder();
-		Optional<UsuarioModel> nomeUsuario = usuarioRepository.findByNomeUsuario(user.get().getNomeUsuario());
+		Optional<UsuarioModel> nomeUsuario = usuarioRepository.findByNomeUsuario(user.get().getUsuario());
 		
 		if (nomeUsuario.isPresent()) {
 			if (enconder.matches(user.get().getSenha(), nomeUsuario.get().getSenha())) {
 				
-				String auth = user.get().getNomeUsuario() + ":" + user.get().getSenha();
+				String auth = user.get().getUsuario() + ":" + user.get().getSenha();
 				byte[] encodeAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
 				String authHeader = "Basic " + new String(encodeAuth);
 				

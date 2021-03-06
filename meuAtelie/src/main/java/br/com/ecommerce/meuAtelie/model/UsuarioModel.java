@@ -10,7 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.br.CPF;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
@@ -30,15 +34,16 @@ public class UsuarioModel {
 	@Size(min = 2, max =200, message = "Endereço deve ser inserido, de 2 até 200 caracteres" )
 	private String endereco;
 	
+	@CPF
 	@NotNull
-	private long cpf;
+	private String cpf;
 	
 	@NotNull
 	@Size(min = 3, max =45, message = "Usúario deve ser inserido, de 3 até 45 caracteres")
 	private String nomeUsuario;
 	
 	@NotNull
-	@Size(min = 3, max =45,message = "Email deve ser inserido, de 3 até 45 caracteres")
+	@Email
 	private String email;
 	
 	@NotNull
@@ -76,12 +81,20 @@ public class UsuarioModel {
 		this.endereco = endereco;
 	}
 
-	public long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public List<VendaModel> getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(List<VendaModel> vendas) {
+		this.vendas = vendas;
 	}
 
 	public String getNomeUsuario() {
