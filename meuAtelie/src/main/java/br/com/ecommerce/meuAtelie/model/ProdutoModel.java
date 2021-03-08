@@ -5,11 +5,13 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -47,13 +49,14 @@ public class ProdutoModel {
 	@Size(min = 0, max = 1000)
 	private String avaliacaoProduto;
 	
-	@ManyToOne
-	@JsonIgnoreProperties("produto")
-	private UsuarioModel usuario;
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "criador")
+	@JsonIgnoreProperties({"meusProdutos", "minhasCompras", "senha"})
+	private UsuarioModel criadoPor;
 	
-	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties({ "produto", "usuario" })
-	private List<VendaModel> vendas = new ArrayList<>();
+	@ManyToMany(mappedBy = "minhasCompras", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnoreProperties({"senha", "meusProdutos", "minhasCompras"})
+	private List<UsuarioModel> compradoPor = new ArrayList<>();
 
 	public long getId() {
 		return id;
@@ -79,14 +82,7 @@ public class ProdutoModel {
 		this.descricaoProduto = descricaoProduto;
 	}
 
-	public UsuarioModel getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(UsuarioModel usuario) {
-		this.usuario = usuario;
-	}
-
+	
 	public double getPrecoProduto() {
 		return precoProduto;
 	}
@@ -119,14 +115,6 @@ public class ProdutoModel {
 		this.avaliacaoProduto = avaliacaoProduto;
 	}
 
-	public List<VendaModel> getVendas() {
-		return vendas;
-	}
-
-	public void setVendas(List<VendaModel> vendas) {
-		this.vendas = vendas;
-	}
-
 	public CategoriaAceitas getCategorias() {
 		return categorias;
 	}
@@ -134,4 +122,22 @@ public class ProdutoModel {
 	public void setCategorias(CategoriaAceitas categorias) {
 		this.categorias = categorias;
 	}
+
+	public UsuarioModel getCriadoPor() {
+		return criadoPor;
+	}
+
+	public void setCriadoPor(UsuarioModel criadoPor) {
+		this.criadoPor = criadoPor;
+	}
+
+	public List<UsuarioModel> getCompradoPor() {
+		return compradoPor;
+	}
+
+	public void setCompradoPor(List<UsuarioModel> compradoPor) {
+		this.compradoPor = compradoPor;
+	}
+	
+	
 }

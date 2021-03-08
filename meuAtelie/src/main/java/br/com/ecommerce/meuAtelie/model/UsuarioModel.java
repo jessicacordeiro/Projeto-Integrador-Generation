@@ -8,13 +8,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.br.CPF;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
@@ -49,13 +50,17 @@ public class UsuarioModel {
 	@NotNull
 	private String senha;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties({ "usuario", "produto" })
-	private List<VendaModel> vendas = new ArrayList<>();
-
-	@OneToMany(mappedBy = "usuario" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JsonIgnoreProperties({ "usuario"})
-	private List<ProdutoModel> produto = new ArrayList<>();
+	@OneToMany(mappedBy = "criadoPor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("criadoPor")
+	private List<ProdutoModel> meusProdutos = new ArrayList<>();
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(
+	  name = "tb_compras", 
+	  joinColumns = @JoinColumn(name = "comprador_id"), 
+	  inverseJoinColumns = @JoinColumn(name = "produto_id"))
+	@JsonIgnoreProperties("compradoPor")
+	private List<ProdutoModel> minhasCompras = new ArrayList<>();
 
 	public long getId() {
 		return id;
@@ -89,14 +94,6 @@ public class UsuarioModel {
 		this.cpf = cpf;
 	}
 
-	public List<VendaModel> getVendas() {
-		return vendas;
-	}
-
-	public void setVendas(List<VendaModel> vendas) {
-		this.vendas = vendas;
-	}
-
 	public String getNomeUsuario() {
 		return nomeUsuario;
 	}
@@ -121,21 +118,20 @@ public class UsuarioModel {
 		this.senha = senha;
 	}
 
-	public List<VendaModel> getVenda() {
-		return vendas;
+	public List<ProdutoModel> getMeusProdutos() {
+		return meusProdutos;
 	}
 
-	public void setVenda(List<VendaModel> vendas) {
-		this.vendas = vendas;
+	public void setMeusProdutos(List<ProdutoModel> meusProdutos) {
+		this.meusProdutos = meusProdutos;
 	}
 
-	public List<ProdutoModel> getProduto() {
-		return produto;
+	public List<ProdutoModel> getMinhasCompras() {
+		return minhasCompras;
 	}
 
-	public void setProduto(List<ProdutoModel> produto) {
-		this.produto = produto;
+	public void setMinhasCompras(List<ProdutoModel> minhasCompras) {
+		this.minhasCompras = minhasCompras;
 	}
-
 	
 }
