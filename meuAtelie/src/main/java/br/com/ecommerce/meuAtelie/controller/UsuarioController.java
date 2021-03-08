@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.com.ecommerce.meuAtelie.model.ProdutoModel;
 import br.com.ecommerce.meuAtelie.model.UsuarioLogin;
 import br.com.ecommerce.meuAtelie.model.UsuarioModel;
 import br.com.ecommerce.meuAtelie.repository.UsuarioRepository;
@@ -45,6 +47,28 @@ public class UsuarioController {
 	@GetMapping("/nomeCompleto/{nomeCompleto}")
 	public ResponseEntity<List<UsuarioModel>> GetByNomeCompleto(@PathVariable String nomeCompleto) {
 		return ResponseEntity.ok(usuarioRepository.findAllByNomeCompletoContainingIgnoreCase(nomeCompleto));
+	}
+	
+	@PostMapping("/produto/novo/{id_Usuario}")
+	public ResponseEntity<?> novoProduto(
+			@PathVariable(value = "id_Usuario") Long idUsuario,
+			@Valid @RequestBody ProdutoModel novoProduto){
+		ProdutoModel cadastro =  usuarioService.cadastrarProduto(novoProduto, idUsuario);
+		if(cadastro == null) {
+			return new ResponseEntity<String>("Falha no cadastro", HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<ProdutoModel>(cadastro, HttpStatus.CREATED);
+	}
+	
+	@PutMapping("/produto/compra/{id_Produto}/{id_Usuario}")
+	public ResponseEntity<?> novaCompra(
+			@PathVariable(value = "id_Produto") Long idProduto,
+			@PathVariable(value = "id_Usuario") Long idUsuario){
+		UsuarioModel compra = usuarioService.comprarProduto(idUsuario, idProduto);
+		if(compra == null) {
+			return new ResponseEntity<String>("Produto ou Usuario invalido", HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<UsuarioModel>(compra, HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/cadastrar")
