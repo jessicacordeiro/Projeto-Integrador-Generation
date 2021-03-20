@@ -2,30 +2,33 @@ package br.com.ecommerce.meuAtelie.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
+import br.com.ecommerce.meuAtelie.model.util.CategoriaAceitas;
+import javax.persistence.EnumType;
 
 @Entity
 @Table(name = "tb_produto")
-public class produtoModel {
+public class ProdutoModel {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-
+	
+	private @Enumerated(EnumType.STRING) CategoriaAceitas categorias;
+	
 	@NotNull
 	@Size(min = 0, max = 50)
 	private String nomeProduto;
@@ -45,15 +48,15 @@ public class produtoModel {
 
 	@Size(min = 0, max = 1000)
 	private String avaliacaoProduto;
-
-	@ManyToOne
-	@JsonIgnoreProperties("produto")
-	private CategoriaModel categoria;
-
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "tb_venda", joinColumns = @JoinColumn(name = "produto_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
-	@JsonIgnoreProperties("produtos")
-	private List<UsuarioModel> usuario = new ArrayList<>();
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "criador")
+	@JsonIgnoreProperties({"meusProdutos", "minhasCompras", "senha"})
+	private UsuarioModel criadoPor;
+	
+	@ManyToMany(mappedBy = "minhasCompras", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnoreProperties({"senha", "meusProdutos", "minhasCompras"})
+	private List<UsuarioModel> compradoPor = new ArrayList<>();
 
 	public long getId() {
 		return id;
@@ -79,6 +82,7 @@ public class produtoModel {
 		this.descricaoProduto = descricaoProduto;
 	}
 
+	
 	public double getPrecoProduto() {
 		return precoProduto;
 	}
@@ -111,22 +115,29 @@ public class produtoModel {
 		this.avaliacaoProduto = avaliacaoProduto;
 	}
 
-	public CategoriaModel getCategoria() {
-		return categoria;
+	public CategoriaAceitas getCategorias() {
+		return categorias;
 	}
 
-	public void setCategoria(CategoriaModel categoria) {
-		this.categoria = categoria;
+	public void setCategorias(CategoriaAceitas categorias) {
+		this.categorias = categorias;
 	}
 
-	public List<UsuarioModel> getUsuario() {
-		return usuario;
+	public UsuarioModel getCriadoPor() {
+		return criadoPor;
 	}
 
-	public void setUsuario(List<UsuarioModel> usuario) {
-		this.usuario = usuario;
+	public void setCriadoPor(UsuarioModel criadoPor) {
+		this.criadoPor = criadoPor;
 	}
-	
+
+	public List<UsuarioModel> getCompradoPor() {
+		return compradoPor;
+	}
+
+	public void setCompradoPor(List<UsuarioModel> compradoPor) {
+		this.compradoPor = compradoPor;
+	}
 	
 	
 }
