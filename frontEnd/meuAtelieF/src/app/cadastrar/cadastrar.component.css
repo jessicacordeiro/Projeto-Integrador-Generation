@@ -1,0 +1,48 @@
+.modal-personalizado{
+    min-width: 900px;
+    width: auto;
+    height: auto; 
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .modal-content {
+      padding: 10px 5%;
+      min-width: 88%;
+    }
+  }
+.modal-personalizado.modal-content {
+    min-height: 50vh;
+}
+.backgroundModal{
+    background-color: #E5dad0;
+}
+
+
+input{
+    background-color:#EFEFED;
+    height: 25px;
+    width: 90%;
+    border-radius: 20px;
+}
+
+.form-group{
+    margin-left: 30px;
+    height: 40px;
+}
+.backgroundbotton{
+    background-color: #EFEFED;
+    border: none;
+}
+.negrito{
+    font-weight: bold ;
+}
+
+#button1:hover{
+    background-color: #BA8F7A
+    ;
+}
+
+#button2:hover{
+    background-color: #DA6E40 ;
+}
