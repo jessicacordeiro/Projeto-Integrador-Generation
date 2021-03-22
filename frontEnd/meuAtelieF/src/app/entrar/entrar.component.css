@@ -1,0 +1,33 @@
+.modal-personalizado{
+    min-width: 900px;
+    width: auto;
+    height: auto; 
+    border-radius: 20px;
+    
+}
+.modal-personalizado.modal-content {
+    min-height: 50vh;
+}
+.backgroundModal{
+    background-color: #E5dad0;
+}
+.button{
+    border-radius: 20px;
+    background-color: #efefed;
+    width: 100px;
+    margin-top: 5px;
+
+}
+
+input{
+    border-radius: 20px;
+    background-color: #efefed;
+}
+
+
+@media screen and (max-width:767px) {
+    .modal-content {
+      padding: 10px 5%;
+      min-width: 88%;
+    }
+  }
