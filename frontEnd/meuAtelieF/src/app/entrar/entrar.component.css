@@ -25,9 +25,10 @@ input{
 }
 
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:800px) {
     .modal-content {
       padding: 10px 5%;
       min-width: 88%;
+      flex-direction: column;
     }
-  }
+}
