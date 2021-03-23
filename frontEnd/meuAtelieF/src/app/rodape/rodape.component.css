@@ -1,0 +1,33 @@
+
+ul.rodape{
+    list-style: none;
+    padding: 0%;
+}
+ul.rodape li{
+    display: inline;
+    margin: 0%;
+    padding: 5px;
+}
+img{
+    width: 25px;
+    height: 25px;
+}
+ul.rodape p{
+    display: inline;
+    margin: 0%;
+}
+ul.rodape img{
+    display: inline;
+    margin: 0%;
+}
+footer{
+    color: #737373;
+}
+a{
+    color:#737373;
+    text-decoration: none;
+    
+}
+a:hover{
+    color: #da6e40;
+}
