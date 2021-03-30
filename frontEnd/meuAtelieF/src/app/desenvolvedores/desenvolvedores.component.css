@@ -1,0 +1,43 @@
+section{
+    background-color: #E5DAD0;
+}
+ul li{
+    display: inline;
+    margin: 0%;
+    padding: 10px;
+}
+.fa{
+    color: #DA6E40;
+    font-size: 40px;
+    margin: 0%;
+    text-align: center;
+}
+.fa-github:hover{
+color: black;
+}
+.fa-linkedin-square:hover{
+    color: #0072b1;
+}
+.fa-facebook-square:hover{
+  
+    color: #3b5998;
+}
+img{
+    width: 286px;
+    height: 300px;
+}
+.color{
+color:  #545454;
+}
+.color1{
+    color: #b2b2ae;
+}
+.br-10{
+    border-radius: 10px;
+}
+.br-20{
+    border-radius: 20px;
+}
+.color2{
+    color: #545454;
+}
