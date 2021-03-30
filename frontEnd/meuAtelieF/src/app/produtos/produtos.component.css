@@ -1,0 +1,51 @@
+section{
+    background-color: #E5DAD0;
+}
+
+.img-banner{
+    filter: brightness(50%);
+}
+
+.texto{
+    margin-top: 230px;
+    font-size: 100pt;
+    color: white;
+    
+}
+.botao{
+    border-radius: 40px;
+    border: none;
+    width: 200px;
+    height: 50px;
+    font-size: 15pt;
+    background-color: #B2B2AE;
+    font-weight: bold;
+
+    
+   
+}
+
+.negrito{
+    font-weight: bold;
+    font-size: 17pt;
+}
+.botao-preco{
+    border-radius: 5px;
+    border: none;
+}
+
+.botao-img{
+   position: absolute !important;
+   left: 500px;
+   border: none;
+   background: none;
+   
+}
+
+@media screen and (max-width: 1000px) {
+    .categoria {
+      display: none;
+      
+    }
+  }
+   

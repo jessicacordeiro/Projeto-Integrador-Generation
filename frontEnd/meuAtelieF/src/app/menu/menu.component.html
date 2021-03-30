@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <a class="navbar-brand ml-5" href="#"><img src="../../assets/logo.png" alt="" width="150px" height="88px"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
         aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,7 +10,7 @@
             <img src="../../assets/logoPesquisa.png" id="btnBusca" alt="Buscar" width="40px" height="20px" />
         </button>
     </form>
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <div class="collapse navbar-collapse justify-content-end mr-5" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-5 " style="margin-right: 50px;">
             
             <li class="nav-item dropdown fonte" style="font-size: 25px;">
@@ -35,8 +35,8 @@
                     Entrar
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Entrar</a>
-                    <a class="dropdown-item" href="#">Cadastrar</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mymodal" data-whatever="@Entrar">Entrar</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mymodal2" data-whatever="@Cadastrar">Cadastrar</a>
                     
                 </div>
             </li>
@@ -47,3 +47,110 @@
 
     </div>
 </nav>
+
+
+
+
+    <!-- Modal-Cadastrar -->
+<div class="modal fade" id="mymodal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+    <div class="modal-content modal-personalizado backgroundModal">
+        <div class="container-fluid">
+            <div class="row ">
+                <div style="border-radius: 20px;" class="col-md-6">
+
+                    <h3 class="text-center mt-5 fonte negrito">CADASTRAR</h3>
+                    <hr width="200px">
+
+                    <form class="fonte negrito">
+                        <div class="form-group" style="margin-top: 30px;">
+                            <label class="mb-0 ml-2" for="formGroupExampleInput">Nome Completo:</label>
+                            <input type="text" class="form-control" id="nome" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-0 ml-2" for="formGroupExampleInput2">Endereço:</label>
+                            <input type="adress" class="form-control" id="endereco" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-0 ml-2" for="formGroupExampleInput">CPF:</label>
+                            <input type="text" class="form-control" id="cpf" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-0 ml-2" for="formGroupExampleInput2">Usuário:</label>
+                            <input type="text" class="form-control" id="usuario" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-0 ml-2" for="formGroupExampleInput">E-mail:</label>
+                            <input type="email" class="form-control" id="email" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-0 ml-2" for="formGroupExampleInput2">Senha:</label>
+                            <input type="password" class="form-control" id="senha" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-0 ml-2" for="formGroupExampleInput2">Confirmar Senha:</label>
+                            <input type="password" class="form-control" id="confirmarSenha" placeholder="">
+                        </div>
+                    </form>
+                    
+                    <div class="d-flex justify-content-center mt-2 mb-5 mt-4">
+                        <button id="button1" type="submit" class="btn btn-dark mr-3 mt-2 mb-2 backgroundbotton text-dark fonte negrito">Cancelar</button>
+                        <button id="button2" type="submit" class="btn btn-dark mt-2 mb-2 backgroundbotton text-dark fonte negrito">Cadastrar</button>
+                    </div>
+
+
+                </div>
+                <div style="border-radius: 20px;" class="col-md-6 mt-5">
+                    <img class="img-fluid" style="margin-top: 100px;" src="../../assets/logoEntrar.png" alt=""
+                        width="350px" height="350px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- \Modal-Cadastrar -->
+
+<!-- Modal -->
+<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+        <div class="modal-content modal-personalizado backgroundModal ">
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1 class="text-center mb-3 mt-5 fonte">ENTRAR</h1>
+
+                    <div class="form-group fonte">
+                        <label class="ml-2" for=usuario><b>Usuário</b> </label>
+                        <input class="form-control" type="text" name="usuario" id="usuario" placeholder="">
+                    </div>
+
+
+                    <div class="form-group fonte ">
+                        <label class="ml-2 mt-2" for=senha><b>Senha</b> </label>
+                        <input class="form-control" type="password" name="senha" id="senha" placeholder="">
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-sucess button fonte mt-3" ><b>Entrar</b></button>
+                    </div>
+
+                    <hr class="mt-4 mb-3">
+
+                    <p class="text-center mb-5 fonte">Não tem uma conta ? <a href=""> Cadastre-se</a></p>
+
+
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <img src="../../assets/logoEntrar.png" alt="Foto do logo" class="img-fluid">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Modal -->
