@@ -8,6 +8,7 @@ import { EntrarComponent } from './entrar/entrar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { DesenvolvedoresComponent } from './desenvolvedores/desenvolvedores.component';
+import { ContaArtesaoComponent } from './conta-artesao/conta-artesao.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DesenvolvedoresComponent } from './desenvolvedores/desenvolvedores.comp
     EntrarComponent,
     CadastrarComponent,
     RodapeComponent,
-    DesenvolvedoresComponent
+    DesenvolvedoresComponent,
+    ContaArtesaoComponent
   ],
   imports: [
     BrowserModule,
