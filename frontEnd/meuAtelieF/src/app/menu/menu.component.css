@@ -1,7 +1,7 @@
 #divBusca{
     background-color: #EFEFED;
     border-radius:20px;
-    width:700px;
+    width:900px;
 }
 #txtBusca{
     float:left;
@@ -12,7 +12,7 @@
     font-size:18px;
     border:none;
     height:45px;
-    width:260px;
+    width:830px;
     border-radius: 20px;
   }
 
@@ -24,3 +24,90 @@
     height: 100px;
     border-left: 2px solid;
   }
+
+  .modal-personalizado{
+    min-width: 900px;
+    width: auto;
+    height: auto; 
+    border-radius: 20px;
+    
+}
+.modal-personalizado.modal-content {
+    min-height: 50vh;
+}
+.backgroundModal{
+    background-color: #E5dad0;
+}
+.button{
+    border-radius: 20px;
+    background-color: #efefed;
+    width: 100px;
+    margin-top: 5px;
+
+}
+
+input{
+    border-radius: 20px;
+    background-color: #efefed;
+}
+
+
+
+
+@media screen and (max-width:800px) {
+    .modal-content {
+      padding: 10px 5%;
+      min-width: 88%;
+      flex-direction: column;
+    }
+}
+
+.modal-personalizado{
+  min-width: 900px;
+  width: auto;
+  height: auto; 
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .modal-content {
+    padding: 10px 5%;
+    min-width: 88%;
+  }
+}
+.modal-personalizado.modal-content {
+  min-height: 50vh;
+}
+.backgroundModal{
+  background-color: #E5dad0;
+}
+
+
+input{
+  background-color:#EFEFED;
+  height: 25px;
+  width: 90%;
+  border-radius: 20px;
+}
+
+.form-group{
+  margin-left: 30px;
+  height: 40px;
+}
+.backgroundbotton{
+  background-color: #EFEFED;
+  border: none;
+}
+.negrito{
+  font-weight: bold ;
+}
+
+#button1:hover{
+  background-color: #BA8F7A
+  ;
+}
+
+#button2:hover{
+  background-color: #DA6E40 ;
+}
+
