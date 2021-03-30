@@ -1,0 +1,101 @@
+.area{
+    width:auto;
+  
+  }
+  
+  
+  .bem-vinde{
+      display: flex;
+  }
+  
+  .anunciar{
+    margin-left: 80%;
+    margin-bottom: 2%;
+  }
+  
+  .mt-0 {
+      margin-top: 0 !important;
+    }
+  
+    .buscar{
+      background-color: #e5dad0;
+    }
+    .card-atelie{
+        background-color:#c5926a;
+    }
+  
+    textarea:focus, input:focus, select:focus {
+      box-shadow: 0 0 0 0;
+      border: none;
+      outline: 0;
+  }
+
+  .button{
+    border-radius: 20px;
+    background-color: #efefed;
+    width: 120px;
+    margin-top: 5px;
+  }
+  
+  .button2{
+    border-radius: 40px;
+    background-color: #efefed;
+    width: 150px;
+    margin-top: 5px;
+    margin-bottom: 50px;
+    margin-right: 130px;
+  }
+  
+  .box {
+    display: flex;
+    flex-direction: column;
+    margin-top:2%;
+  }
+
+  .search{
+    width: 15px;
+    height: 10px;
+    border: none;
+    outline: none;
+    color: black;
+    margin-right: 1%;
+    margin-left: 10%;
+    margin-bottom: 50px;
+}
+
+.barraPesquisar{
+  width: 20%;
+  border:none;
+  border-radius: 0px;
+  border-bottom: 2px solid #b2b2ae;
+}
+
+.card{
+ background-color: #efefed;
+ 
+}
+
+.card2{
+  padding: 30px;
+}
+
+.minhasCompras{
+  margin-top: 3%;
+ 
+}
+
+.listaVendas{
+  margin-top: 3%;
+  background-color:#efefed ; 
+  font-size: 20px;
+} 
+.meusAnuncios{
+  margin-left: 150px;
+  margin-bottom: 50px;
+ 
+}
+
+.colorMenu{
+  color: grey;
+  font-weight: bold;
+}
