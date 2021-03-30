@@ -9,6 +9,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { DesenvolvedoresComponent } from './desenvolvedores/desenvolvedores.component';
 import { ContaArtesaoComponent } from './conta-artesao/conta-artesao.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ContaArtesaoComponent } from './conta-artesao/conta-artesao.component';
     CadastrarComponent,
     RodapeComponent,
     DesenvolvedoresComponent,
-    ContaArtesaoComponent
+    ContaArtesaoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
