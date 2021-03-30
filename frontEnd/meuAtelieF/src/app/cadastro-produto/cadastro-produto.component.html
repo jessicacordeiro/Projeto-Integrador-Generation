@@ -1,0 +1,78 @@
+<!-- Botão para acionar modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">CADASTRE SEU PRODUTO
+    
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg justify-content-center" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>QUAL É A CATEGORIA DO SEU PRODUTO ?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container card-atelie ">           
+                <div class="form-check form-check-inline dados">
+                    <input class="form-check-input" type="radio"              
+                    
+                    name="inlineRadioOptions" id="inlineRadioQuarto"
+                        value="opcaoQuarto">
+                    <label class="form-check-label dados" for="inlineRadioQuarto">Quarto</label>
+                </div>
+            
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioSala" value="opcaoSala">
+                    <label class="form-check-label" for="inlineRadioSala">Sala</label>
+                </div>
+            
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioCozinha"
+                        value="opcaoCozinha">
+                    <label class="form-check-label" for="inlineRadioCozinha">Cozinha</label>
+                </div>
+            
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioBanheiro"
+                        value="opcaoBanheiro">
+                    <label class="form-check-label" for="inlineRadiobanheiro">Banheiro</label>
+                </div>
+            
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="areaExterna">
+                    <label class="form-check-label" for="inlineRadioAreaExterna">Área Externa</label>
+                </div>
+            
+                <form>
+                    <div class="form-group dados">
+                        <label for="formGroupExampleInput ">Nome do Produto: </label>
+                        <input type="text" class="form-control card-atelie" id="formGroupExampleInput" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInputDescricao">Descrição:</label>
+                        <input type="text" class="form-control card-atelie" id="formGroupExampleInputDescricao" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInputPreco">Preço:</label>
+                        <input type="text" class="form-control card-atelie" id="formGroupExampleInputPreco" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInputQuantidade">Quantidade:</label>
+                        <input type="text" class="form-control card-atelie" id="formGroupExampleInputQuantidade" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInputLink">Link da Foto:</label>
+                        <input type="text" class="form-control card-atelie" id="formGroupExampleInputLink" placeholder="">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-light">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
