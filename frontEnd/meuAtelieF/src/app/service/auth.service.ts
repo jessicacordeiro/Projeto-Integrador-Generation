@@ -10,7 +10,8 @@ import {UsuarioModel} from '../modal/UsuarioModel';
 export class AuthService {
 
   constructor(
-    private http:HttpClient)  { }
+    private http:HttpClient
+    )  { }
 
     entrar(usuarioLogin:UsuarioLogin):Observable<UsuarioLogin>{ 
       return this.http.post<UsuarioLogin>('http://localhost:8080/usuario/logar',usuarioLogin)

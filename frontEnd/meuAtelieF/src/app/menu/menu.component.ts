@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuarioModel } from '../modal/UsuarioModel';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +10,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  usuarioModel : UsuarioModel= new UsuarioModel
+  confirmarSenha: string
 
-  ngOnInit(): void {
+  constructor(
+    private authService: AuthService,
+    private router : Router
+  ) { }
+
+ 
+
+  ngOnInit() {
+    window.scroll(0,0)
+
+  }
+
+  confirmSenha(event: any){
+    this.confirmarSenha = event.target.value
+  }
+
+
+  cadastrar(){
+
+    if(this.usuarioModel.senha == this.confirmarSenha){
+     this.authService.cadastrar(this.usuarioModel).subscribe((resp: UsuarioModel)=>{
+      this.usuarioModel = resp
+      this.router.navigate(['/home'])
+      alert('Usuário cadastrado com sucesso')
+     })
+
+    }
+    else{
+      alert('Senhas estão incorretas')
+    
+    }
   }
 
 }

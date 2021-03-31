@@ -1,3 +1,5 @@
+import { ProdutoModel } from "./ProdutoModel"
+
 export class UsuarioModel {
     public id: number
     public nomeCompleto: string 
@@ -6,4 +8,5 @@ export class UsuarioModel {
     public nomeUsuario: string 
     public email: string 
     public senha: string 
+    public ProdutoModel: ProdutoModel[]
     }
