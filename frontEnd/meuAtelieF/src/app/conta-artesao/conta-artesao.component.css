@@ -99,3 +99,47 @@
   color: grey;
   font-weight: bold;
 }
+
+
+/*Modal*/
+
+.modal-personalizado{
+  width: auto;
+  height: auto; 
+  min-width: 900px;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .modal-content {
+    padding: 10px 5%;
+    min-width: 88%;
+  }
+}
+.modal-personalizado.modal-content {
+  min-height: 50vh;
+}
+.backgroundModal{
+  background-color: #E5dad0;
+}
+
+input{
+  background-color: #E5dad0;
+  height: 25px;
+  width: 90%;
+  border:none;
+  border-radius: 0px;
+  border-bottom: 2px solid #b2b2ae;
+  
+}
+
+.form-group{
+  margin-left: 30px;
+  height: 40px;
+}
+
+.button-radius{
+  border-radius: 20px;
+  background-color: white;
+  margin: 0 10px;
+}

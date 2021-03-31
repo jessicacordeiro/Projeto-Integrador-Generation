@@ -12,13 +12,15 @@
     font-size:18px;
     border:none;
     height:45px;
-    width:830px;
+    width:260px;
     border-radius: 20px;
   }
 
   textarea:focus, input:focus, select:focus {
     outline: 0;
 }
+
+
 
   .linha-vertical {
     height: 100px;
