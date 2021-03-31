@@ -66,37 +66,37 @@ aria-hidden="true">
                     <form class="fonte negrito">
                         <div class="form-group" style="margin-top: 30px;">
                             <label class="mb-0 ml-2" for="formGroupExampleInput">Nome Completo:</label>
-                            <input type="text" class="form-control" id="nome" placeholder="">
+                            <input [(ngModel)]='usuarioModel.nomeCompleto' type="text" class="form-control" id="nome" placeholder="">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput2">Endereço:</label>
-                            <input type="adress" class="form-control" id="endereco" placeholder="">
+                            <input  [(ngModel)]='usuarioModel.endereco'type="adress" class="form-control" id="endereco" placeholder="">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput">CPF:</label>
-                            <input type="text" class="form-control" id="cpf" placeholder="">
+                            <input [(ngModel)]='usuarioModel.cpf' type="text" class="form-control" id="cpf" placeholder="">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput2">Usuário:</label>
-                            <input type="text" class="form-control" id="usuario" placeholder="">
+                            <input [(ngModel)]='usuarioModel.nomeUsuario' type="text" class="form-control" id="usuario" placeholder="">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput">E-mail:</label>
-                            <input type="email" class="form-control" id="email" placeholder="">
+                            <input [(ngModel)]='usuarioModel.email' type="email" class="form-control" id="email" placeholder="">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput2">Senha:</label>
-                            <input type="password" class="form-control" id="senha" placeholder="">
+                            <input (input)='confirmSenha($event)' type="password" class="form-control" id="senha" placeholder="">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput2">Confirmar Senha:</label>
-                            <input type="password" class="form-control" id="confirmarSenha" placeholder="">
+                            <input [(ngModel)]='usuarioModel.senha' type="password" class="form-control" id="confirmarSenha" placeholder="">
                         </div>
                     </form>
                     
                     <div class="d-flex justify-content-center mt-2 mb-5 mt-4">
                         <button id="button1" type="submit" class="btn btn-dark mr-3 mt-2 mb-2 backgroundbotton text-dark fonte negrito">Cancelar</button>
-                        <button id="button2" type="submit" class="btn btn-dark mt-2 mb-2 backgroundbotton text-dark fonte negrito">Cadastrar</button>
+                        <button id="button2" type="submit" class="btn btn-dark mt-2 mb-2 backgroundbotton text-dark fonte negrito" (click)='cadastrar()'>Cadastrar</button>
                     </div>
 
 
