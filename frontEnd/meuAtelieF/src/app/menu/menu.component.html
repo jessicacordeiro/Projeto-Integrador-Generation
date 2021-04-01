@@ -66,31 +66,31 @@ aria-hidden="true">
                     <form class="fonte negrito">
                         <div class="form-group" style="margin-top: 30px;">
                             <label class="mb-0 ml-2" for="formGroupExampleInput">Nome Completo:</label>
-                            <input [(ngModel)]='usuarioModel.nomeCompleto' type="text" class="form-control" id="nome" placeholder="">
+                            <input [(ngModel)]='usuarioModel.nomeCompleto' type="text" class="form-control" id="nome" placeholder="" name="nomeCompleto">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput2">Endereço:</label>
-                            <input  [(ngModel)]='usuarioModel.endereco'type="adress" class="form-control" id="endereco" placeholder="">
+                            <input  [(ngModel)]='usuarioModel.endereco'type="adress" class="form-control" id="endereco" placeholder="" name="endereco">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput">CPF:</label>
-                            <input [(ngModel)]='usuarioModel.cpf' type="text" class="form-control" id="cpf" placeholder="">
+                            <input [(ngModel)]='usuarioModel.cpf' type="text" class="form-control" id="cpf" placeholder="" name="cpf">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput2">Usuário:</label>
-                            <input [(ngModel)]='usuarioModel.nomeUsuario' type="text" class="form-control" id="usuario" placeholder="">
+                            <input [(ngModel)]='usuarioModel.nomeUsuario' type="text" class="form-control" id="usuario" placeholder="" name="nomeUsuario">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput">E-mail:</label>
-                            <input [(ngModel)]='usuarioModel.email' type="email" class="form-control" id="email" placeholder="">
+                            <input [(ngModel)]='usuarioModel.email' type="email" class="form-control" id="email" placeholder="" name="email">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput2">Senha:</label>
-                            <input (input)='confirmSenha($event)' type="password" class="form-control" id="senha" placeholder="">
+                            <input (input)='confirmSenha($event)' type="password" class="form-control" id="senha" placeholder="" name="senha">
                         </div>
                         <div class="form-group">
                             <label class="mb-0 ml-2" for="formGroupExampleInput2">Confirmar Senha:</label>
-                            <input [(ngModel)]='usuarioModel.senha' type="password" class="form-control" id="confirmarSenha" placeholder="">
+                            <input [(ngModel)]='usuarioModel.senha' type="password" class="form-control" id="confirmarSenha" placeholder="" name="senha">
                         </div>
                     </form>
                     
