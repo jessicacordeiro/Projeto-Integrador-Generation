@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
+import { UsuarioLogin } from '../modal/UsuarioLogin';
 import { UsuarioModel } from '../modal/UsuarioModel';
 import { AuthService } from '../service/auth.service';
 
@@ -11,10 +13,12 @@ import { AuthService } from '../service/auth.service';
 export class MenuComponent implements OnInit {
 
   usuarioModel : UsuarioModel= new UsuarioModel
+  usuarioLogin : UsuarioLogin = new UsuarioLogin
   confirmarSenha: string
 
   constructor(
     private authService: AuthService,
+    private auth: AuthService,
     private router : Router
   ) { }
 
@@ -44,6 +48,20 @@ export class MenuComponent implements OnInit {
       alert('Senhas estão incorretas')
     
     }
+  }
+
+  entrar(){
+    this.auth.entrar(this.usuarioLogin).subscribe((resp: UsuarioLogin)=>{
+      this.usuarioLogin =  resp
+
+      environment.token = this.usuarioLogin.token
+
+      this.router.navigate(['/home'])
+    }, erro =>{
+      if(erro.status == 500){
+        alert('erro no login')
+      }
+    })
   }
 
 }
