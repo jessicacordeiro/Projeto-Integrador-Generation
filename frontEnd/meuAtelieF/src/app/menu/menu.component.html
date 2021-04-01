@@ -5,18 +5,18 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <form class="form-inline my-2 my-lg-0" id="divBusca">
-        <input class="fonte" type="text" id="txtBusca" placeholder="Buscar produtos"/>
+        <input class="fonte" type="text" id="txtBusca" placeholder="Buscar produtos" />
         <button class="border-0 ml-auto mr-2">
             <img src="../../assets/logoPesquisa.png" id="btnBusca" alt="Buscar" width="40px" height="20px" />
         </button>
     </form>
     <div class="collapse navbar-collapse justify-content-end mr-5" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-5 " style="margin-right: 50px;">
-            
+
             <li class="nav-item dropdown fonte" style="font-size: 25px;">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                
+                    aria-haspopup="true" aria-expanded="false">
+
                     Categorias
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -35,13 +35,18 @@
                     Entrar
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mymodal" data-whatever="@Entrar">Entrar</a>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mymodal2" data-whatever="@Cadastrar">Cadastrar</a>
-                    
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mymodal"
+                        data-whatever="@Entrar">Entrar</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mymodal2"
+                        data-whatever="@Cadastrar">Cadastrar</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mymodal2"
+                        data-whatever="@Sair">Sair</a>
+
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#"><img src="../../assets/carrinho.png" alt="" width="40px" height="40px"></a>
+                <a class="nav-link disabled" href="#"><img src="../../assets/carrinho.png" alt="" width="40px"
+                        height="40px"></a>
             </li>
         </ul>
 
@@ -51,70 +56,80 @@
 
 
 
-    <!-- Modal-Cadastrar -->
+<!-- Modal-Cadastrar -->
 <div class="modal fade" id="mymodal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
-    <div class="modal-content modal-personalizado backgroundModal">
-        <div class="container-fluid">
-            <div class="row ">
-                <div style="border-radius: 20px;" class="col-md-6">
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+        <div class="modal-content modal-personalizado backgroundModal">
+            <div class="container-fluid">
+                <div class="row ">
+                    <div style="border-radius: 20px;" class="col-md-6">
 
-                    <h3 class="text-center mt-5 fonte negrito">CADASTRAR</h3>
-                    <hr width="200px">
+                        <h3 class="text-center mt-5 fonte negrito">CADASTRAR</h3>
+                        <hr width="200px">
 
-                    <form class="fonte negrito">
-                        <div class="form-group" style="margin-top: 30px;">
-                            <label class="mb-0 ml-2" for="formGroupExampleInput">Nome Completo:</label>
-                            <input [(ngModel)]='usuarioModel.nomeCompleto' type="text" class="form-control" id="nome" placeholder="" name="nomeCompleto">
+                        <form class="fonte negrito">
+                            <div class="form-group" style="margin-top: 30px;">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput">Nome Completo:</label>
+                                <input [(ngModel)]='usuarioModel.nomeCompleto' type="text" class="form-control"
+                                    id="nome" placeholder="" name="nomeCompleto">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput2">Endereço:</label>
+                                <input [(ngModel)]='usuarioModel.endereco' type="adress" class="form-control"
+                                    id="endereco" placeholder="" name="endereco">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput">CPF:</label>
+                                <input [(ngModel)]='usuarioModel.cpf' type="text" class="form-control" id="cpf"
+                                    placeholder="" name="cpf">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput2">Usuário:</label>
+                                <input [(ngModel)]='usuarioModel.nomeUsuario' type="text" class="form-control"
+                                    id="usuario" placeholder="" name="nomeUsuario">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput">E-mail:</label>
+                                <input [(ngModel)]='usuarioModel.email' type="email" class="form-control" id="email"
+                                    placeholder="" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput2">Senha:</label>
+                                <input (input)='confirmSenha($event)' type="password" class="form-control" id="senha"
+                                    placeholder="" name="senha">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput2">Confirmar Senha:</label>
+                                <input [(ngModel)]='usuarioModel.senha' type="password" class="form-control"
+                                    id="confirmarSenha" placeholder="" name="senha">
+                            </div>
+                        </form>
+
+                        <div class="d-flex justify-content-center mt-2 mb-5 mt-4">
+                            <button id="button1" type="submit"
+                                class="btn btn-dark mr-3 mt-2 mb-2 backgroundbotton text-dark fonte negrito"
+                                data-dismiss="modal">Cancelar</button>
+                            <button id="button2" type="submit"
+                                class="btn btn-dark mt-2 mb-2 backgroundbotton text-dark fonte negrito"
+                                (click)='cadastrar()' data-dismiss="modal">Cadastrar</button>
                         </div>
-                        <div class="form-group">
-                            <label class="mb-0 ml-2" for="formGroupExampleInput2">Endereço:</label>
-                            <input  [(ngModel)]='usuarioModel.endereco'type="adress" class="form-control" id="endereco" placeholder="" name="endereco">
-                        </div>
-                        <div class="form-group">
-                            <label class="mb-0 ml-2" for="formGroupExampleInput">CPF:</label>
-                            <input [(ngModel)]='usuarioModel.cpf' type="text" class="form-control" id="cpf" placeholder="" name="cpf">
-                        </div>
-                        <div class="form-group">
-                            <label class="mb-0 ml-2" for="formGroupExampleInput2">Usuário:</label>
-                            <input [(ngModel)]='usuarioModel.nomeUsuario' type="text" class="form-control" id="usuario" placeholder="" name="nomeUsuario">
-                        </div>
-                        <div class="form-group">
-                            <label class="mb-0 ml-2" for="formGroupExampleInput">E-mail:</label>
-                            <input [(ngModel)]='usuarioModel.email' type="email" class="form-control" id="email" placeholder="" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label class="mb-0 ml-2" for="formGroupExampleInput2">Senha:</label>
-                            <input (input)='confirmSenha($event)' type="password" class="form-control" id="senha" placeholder="" name="senha">
-                        </div>
-                        <div class="form-group">
-                            <label class="mb-0 ml-2" for="formGroupExampleInput2">Confirmar Senha:</label>
-                            <input [(ngModel)]='usuarioModel.senha' type="password" class="form-control" id="confirmarSenha" placeholder="" name="senha">
-                        </div>
-                    </form>
-                    
-                    <div class="d-flex justify-content-center mt-2 mb-5 mt-4">
-                        <button id="button1" type="submit" class="btn btn-dark mr-3 mt-2 mb-2 backgroundbotton text-dark fonte negrito">Cancelar</button>
-                        <button id="button2" type="submit" class="btn btn-dark mt-2 mb-2 backgroundbotton text-dark fonte negrito" (click)='cadastrar()'>Cadastrar</button>
+
+
                     </div>
-
-
-                </div>
-                <div style="border-radius: 20px;" class="col-md-6 mt-5">
-                    <img class="img-fluid" style="margin-top: 100px;" src="../../assets/logoEntrar.png" alt=""
-                        width="350px" height="350px">
+                    <div style="border-radius: 20px;" class="col-md-6 mt-5">
+                        <img class="img-fluid" style="margin-top: 100px;" src="../../assets/logoEntrar.png" alt=""
+                            width="350px" height="350px">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 <!-- \Modal-Cadastrar -->
 
 <!-- Modal -->
-<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
         <div class="modal-content modal-personalizado backgroundModal ">
             <div class="modal-body">
@@ -123,24 +138,28 @@ aria-hidden="true">
                         <div class="col-md-6">
                             <h1 class="text-center mb-3 mt-5 fonte">ENTRAR</h1>
 
-                    <div class="form-group fonte">
-                        <label class="ml-2" for=usuario><b>Usuário</b> </label>
-                        <input class="form-control" type="text" name="usuario" id="usuario" placeholder="">
-                    </div>
+                            <div class="form-group fonte">
+                                <label class="ml-2" for=usuario><b>Usuário</b> </label>
+                                <input [(ngModel)]='usuarioLogin.usuario' class="form-control" type="text"
+                                    name="usuario" id="usuario" placeholder="">
+                            </div>
 
 
-                    <div class="form-group fonte ">
-                        <label class="ml-2 mt-2" for=senha><b>Senha</b> </label>
-                        <input class="form-control" type="password" name="senha" id="senha" placeholder="">
-                    </div>
+                            <div class="form-group fonte ">
+                                <label class="ml-2 mt-2" for=senha><b>Senha</b> </label>
+                                <input [(ngModel)]='usuarioLogin.senha' class="form-control" type="password"
+                                    name="senha" id="senha" placeholder="">
+                            </div>
 
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-sucess button fonte mt-3" ><b>Entrar</b></button>
-                    </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-sucess button fonte mt-3" data-dismiss="modal"
+                                    (click)='entrar()'><b>Entrar</b></button>
+                            </div>
 
-                    <hr class="mt-4 mb-3">
+                            <hr class="mt-4 mb-3">
 
-                    <p class="text-center mb-5 fonte">Não tem uma conta ? <a href="#mymodal2"> Cadastre-se</a></p>
+                            <p class="text-center mb-5 fonte">Não tem uma conta ? <a href="#mymodal2"> Cadastre-se</a>
+                            </p>
 
 
                         </div>

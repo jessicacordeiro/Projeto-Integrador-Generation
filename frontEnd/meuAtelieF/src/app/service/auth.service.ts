@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 import {UsuarioLogin} from '../modal/UsuarioLogin';
 import {UsuarioModel} from '../modal/UsuarioModel';
 
@@ -20,5 +21,39 @@ export class AuthService {
     cadastrar(usuarioModel:UsuarioModel):Observable<UsuarioModel>{ 
       return this.http.post<UsuarioModel>('http://localhost:8080/usuario/cadastrar',usuarioModel)
     }
+
+    logado(){
+      let ok: boolean = false
+
+      if(environment.token != ''){
+        ok = true
+      }
+
+      return ok
+    }
+
+    btnSair() {
+      let ok = false 
+      let token = localStorage.getItem('token')
+  
+      if (token != null){
+        ok = true
+      }
+  
+      return ok
+    }
+  
+    btnLogin() {
+      let ok = false 
+      let token = localStorage.getItem('token')
+  
+      if (token == null){
+        ok = true
+      }
+  
+      return ok
+  
+    }
+  
 
   }
