@@ -15,11 +15,16 @@ export class MenuComponent implements OnInit {
   usuarioModel : UsuarioModel= new UsuarioModel
   usuarioLogin : UsuarioLogin = new UsuarioLogin
   confirmarSenha: string
+  nome = environment.usuario
+  id = environment.id
+  token = environment.token
+  
 
   constructor(
     private authService: AuthService,
     private auth: AuthService,
-    private router : Router
+    private router : Router,
+    public auth2 : AuthService
   ) { }
 
  
@@ -53,10 +58,15 @@ export class MenuComponent implements OnInit {
   entrar(){
     this.auth.entrar(this.usuarioLogin).subscribe((resp: UsuarioLogin)=>{
       this.usuarioLogin =  resp
+      localStorage.setItem('token', this.usuarioLogin.token)
+      localStorage.setItem('id', JSON.stringify(this.usuarioLogin.id))
+      alert('Usuário logado')
 
+      environment.usuario = this.usuarioLogin.usuario
       environment.token = this.usuarioLogin.token
       environment.id = this.usuarioLogin.id
-      console.log(this.usuarioLogin.id)
+      this.nome = environment.usuario
+      console.log(environment.usuario)
 
       this.router.navigate(['/home'])
     }, erro =>{
