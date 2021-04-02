@@ -40,6 +40,7 @@ public class UsuarioService {
 				String authHeader = "Basic " + new String(encodeAuth);
 				
 				user.get().setToken(authHeader);
+				user.get().setId(nomeUsuario.get().getId());
 				user.get().setNome(nomeUsuario.get().getNomeCompleto());
 				return user;
 			}
