@@ -8,8 +8,10 @@ import {UsuarioModel} from '../modal/UsuarioModel';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
 
+
+export class AuthService {
+   
   constructor(
     private http:HttpClient
     )  { }
@@ -53,6 +55,52 @@ export class AuthService {
   
       return ok
   
+    }
+
+    btnCadastrar() {
+      let ok = false 
+      let token = localStorage.getItem('token')
+  
+      if (token == null){
+        ok = true
+      }
+  
+      return ok
+  
+    }
+
+    btnMinhaConta() {
+      let ok = false 
+      let token = localStorage.getItem('token')
+  
+      if (token != null){
+        ok = true
+      }
+  
+      return ok
+    }
+
+    btnEntrar() {
+      let ok = false 
+      let token = localStorage.getItem('token')
+  
+      if (token == null){
+        ok = true
+      }
+  
+      return ok
+  
+    }
+
+    btnNome() {
+      let ok = false 
+      let token = localStorage.getItem('token')
+  
+      if (token != null){
+        ok = true
+      }
+  
+      return ok
     }
   
   }
