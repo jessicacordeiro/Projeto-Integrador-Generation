@@ -24,7 +24,7 @@ import { ProdutosComponent } from './produtos/produtos.component';
     ContaArtesaoComponent,
     HomeComponent,
     CategoriasComponent,
-    ProdutosComponent
+    ProdutosComponent,
   ],
   imports: [
     BrowserModule,

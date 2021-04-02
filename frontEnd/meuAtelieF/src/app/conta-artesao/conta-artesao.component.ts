@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
+import { CategoriaAceitas } from '../modal/enum/CategoriaAceitas';
+import { ProdutoModel } from '../modal/ProdutoModel';
+import { UsuarioModelService } from '../service/usuario-model.service';
 
 @Component({
   selector: 'app-conta-artesao',
@@ -7,9 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContaArtesaoComponent implements OnInit {
 
-  constructor() { }
+  produtoModel: ProdutoModel = new ProdutoModel()
+  listaProdutos: ProdutoModel[]
 
-  ngOnInit(): void {
+  constructor(
+    private router: Router,
+    private usuarioModelService: UsuarioModelService
+    ) { }
+
+  ngOnInit() {
+    if (environment.token == '') {
+      this.router.navigate(['/entrar'])
+    }
   }
 
+  cadastrar(){
+    this.usuarioModelService.postProdutoModel(this.produtoModel).subscribe((resp: ProdutoModel)=>{
+      this.produtoModel = resp 
+      alert('Produto cadastrado com sucesso!')
+    })
+  }
 }

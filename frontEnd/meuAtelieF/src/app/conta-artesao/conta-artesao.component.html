@@ -205,61 +205,40 @@
                     </div>
                     <div class="modal-body">
 
-                        <form>
-                            <p class="mb-2 text-center fonte">QUAL É A CATEGORIA DO SEU PRODUTO</p>
-                            <div class="d-flex justify-content-center mt-3" style=" margin-left: 30px;">
-
-                                <div class="custom-control custom-radio custom-control-inline ">
-                                    <input type="radio" id="quarto" name="quarto" class="custom-control-input">
-                                    <label class="custom-control-label fonte" for="quarto">Quarto</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="sala" name="customRadioInline1"
-                                        class="custom-control-input">
-                                    <label class="custom-control-label fonte" for="sala">Sala</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="cozinha" name="cozinha" class="custom-control-input">
-                                    <label class="custom-control-label fonte" for="cozinha">Cozinha</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="banheiro" name="banheiro" class="custom-control-input">
-                                    <label class="custom-control-label fonte" for="banheiro">Banheiro</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline mb-2">
-                                    <input type="radio" id="areaExterna" name="areaExterna"
-                                        class="custom-control-input">
-                                    <label class="custom-control-label fonte" for="areaExterna">Área Externa</label>
-                                </div>
+                        <form ng-controller="ExampleController">
+                            <h6 class="ml-4 fonte">QUAL É A CATEGORIA DO SEU PRODUTO: (somente é válida as que estão definidas abaixo)</h6>
+                            <div class="form-group fonte">
+                                <label for="categoriaAceitas">QUARTO | SALA | COZINHA | BANHEIRO | ÁREA EXTERNA</label>
+                                <input [(ngModel)]='produtoModel.categoriaAceitas' type="categoriaAceitas" class="form-control" id="categoriaAceitas" name="categoriaAceitas">
                             </div>
 
 
-                            <div class="form-group mt-4 fonte">
+                            <div class="form-group mt-5 fonte">
                                 <label for="nome">Nome do produto:</label>
-                                <input type="nome" class="form-control" id="nome">
+                                <input [(ngModel)]='produtoModel.nomeProduto' type="nomeProduto" class="form-control" id="nomeProduto" name="nomeProduto">
                             </div>
                             <div class="form-group mt-5 fonte">
                                 <label for="descricao">Descrição:</label>
-                                <input type="descricao" class="form-control" id="descricao">
+                                <input [(ngModel)]='produtoModel.descricaoProduto' type="descricaoProduto" class="form-control" id="descricaoProduto" name="descricaoProduto">
                             </div>
                             <div class="form-group mt-5 fonte">
                                 <label for="preco">Preço:</label>
-                                <input type="preco" class="form-control" id="preco">
+                                <input [(ngModel)]='produtoModel.precoProduto' type="precoProduto" class="form-control" id="precoProduto" name="precoProduto">
                             </div>
                             <div class="form-group mt-5 fonte">
                                 <label for="quantidade">Quantidade:</label>
-                                <input type="quantidade" class="form-control" id="quantidade">
+                                <input [(ngModel)]='produtoModel.quantidadeProduto' type="quantidadeProduto" class="form-control" id="quantidadeProduto" name="quantidadeProduto">
                             </div>
                             <div class="form-group mt-5 fonte">
                                 <label for="foto">Link da foto:</label>
-                                <input type="foto" class="form-control" id="foto">
+                                <input [(ngModel)]='produtoModel.imagemProduto' type="imagemProduto" class="form-control" id="imagemProduto" name="imagemProduto">
                             </div>
 
                         </form>
                     </div>
                     <div class="d-flex justify-content-center mb-4 mt-4">
                         <button class="btn button-radius fonte" type="button" data-dismiss="modal">Cancelar</button>
-                        <button class="btn button-radius fonte" type="button">Cadastrar</button>
+                        <button class="btn button-radius fonte" type="button" (click)='cadastrar()'>Cadastrar</button>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,9 @@
+import { CategoriaAceitas } from "./enum/CategoriaAceitas"
 import { UsuarioModel } from "./UsuarioModel"
 
 export class ProdutoModel {
     public id: number
+    public categoriaAceitas: CategoriaAceitas
     public nomeProduto: string
     public descricaoProduto: string
     public precoProduto: number
