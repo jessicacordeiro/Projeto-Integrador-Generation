@@ -23,7 +23,8 @@ export class UsuarioModelService {
   }
 
   postProdutoModel(produtoModel: ProdutoModel): Observable<ProdutoModel>{
-    let id = this.usuario.id
-    return this.http.post<ProdutoModel>(`http://localhost:8080/usuario/produto/novo/path-variable/${id}`, produtoModel, this.token)
+    let url = `http://localhost:8080/usuario/produto/novo/${environment.id}`;
+    console.log(produtoModel)
+    return this.http.post<ProdutoModel>(url, produtoModel, this.token)
   }
 }

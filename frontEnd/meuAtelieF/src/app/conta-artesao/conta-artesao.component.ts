@@ -14,7 +14,8 @@ export class ContaArtesaoComponent implements OnInit {
 
   produtoModel: ProdutoModel = new ProdutoModel()
   listaProdutos: ProdutoModel[]
-
+  id= environment.id
+  
   constructor(
     private router: Router,
     private usuarioModelService: UsuarioModelService

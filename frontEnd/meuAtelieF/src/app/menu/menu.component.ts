@@ -55,6 +55,8 @@ export class MenuComponent implements OnInit {
       this.usuarioLogin =  resp
 
       environment.token = this.usuarioLogin.token
+      environment.id = this.usuarioLogin.id
+      console.log(this.usuarioLogin.id)
 
       this.router.navigate(['/home'])
     }, erro =>{
@@ -62,6 +64,16 @@ export class MenuComponent implements OnInit {
         alert('erro no login')
       }
     })
+  }
+
+  sair() {
+    localStorage.clear()
+    this.router.navigate(['/home'])
+    environment.id=0
+    environment.token=''
+    environment.usuario=''
+  
+    alert('Você foi deslogado')
   }
 
 }

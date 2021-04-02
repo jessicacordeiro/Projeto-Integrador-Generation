@@ -3,7 +3,7 @@ import { UsuarioModel } from "./UsuarioModel"
 
 export class ProdutoModel {
     public id: number
-    public categoriaAceitas: CategoriaAceitas
+    public categorias: string
     public nomeProduto: string
     public descricaoProduto: string
     public precoProduto: number
