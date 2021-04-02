@@ -24,7 +24,7 @@ import br.com.ecommerce.meuAtelie.service.ProdutoServices;
 
 @RestController
 @RequestMapping("/produto")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProdutoController {
 
 	@Autowired
