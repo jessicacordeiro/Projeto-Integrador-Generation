@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { CategoriaAceitas } from '../modal/enum/CategoriaAceitas';
@@ -15,22 +17,50 @@ export class ContaArtesaoComponent implements OnInit {
   produtoModel: ProdutoModel = new ProdutoModel()
   listaProdutos: ProdutoModel[]
   id= environment.id
+  myform : FormGroup
+  
+
   
   constructor(
     private router: Router,
-    private usuarioModelService: UsuarioModelService
+    private usuarioModelService: UsuarioModelService,
+    private formbuilder :  FormBuilder
+    
+  
     ) { }
 
   ngOnInit() {
     if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
+
+    this.myform = this.formbuilder.group({
+      categorias : [null],
+      nomeProduto : [null],
+      descricaoProduto : [null],
+      precoProduto : [null],
+      quantidadeProduto : [null],
+      imagemProduto : [null]
+    })
   }
 
   cadastrar(){
     this.usuarioModelService.postProdutoModel(this.produtoModel).subscribe((resp: ProdutoModel)=>{
       this.produtoModel = resp 
+      this.reset()
+
       alert('Produto cadastrado com sucesso!')
     })
   }
+
+
+  reset() {
+      this.myform.reset();
+    
+  }
+  
+
+  
+
+  
 }

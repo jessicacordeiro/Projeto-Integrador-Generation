@@ -8,5 +8,6 @@ export class UsuarioModel {
     public nomeUsuario: string 
     public email: string 
     public senha: string 
-    public ProdutoModel: ProdutoModel[]
+    public meusProdutos: ProdutoModel[]
+    public minhasCompras : ProdutoModel[]
     }

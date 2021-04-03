@@ -66,7 +66,7 @@ export class MenuComponent implements OnInit {
       environment.token = this.usuarioLogin.token
       environment.id = this.usuarioLogin.id
       this.nome = environment.usuario
-      console.log(environment.usuario)
+      console.log(environment.id)
 
       this.router.navigate(['/home'])
     }, erro =>{
