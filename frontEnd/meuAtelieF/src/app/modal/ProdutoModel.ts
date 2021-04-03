@@ -10,5 +10,6 @@ export class ProdutoModel {
     public quantidadeProduto: number
     public imagemProduto: string
     public avaliacaoProduto: string
-    public UsuarioModel : UsuarioModel
+    public criadoPor : UsuarioModel
+    public compradoPor : UsuarioModel[]
     }
