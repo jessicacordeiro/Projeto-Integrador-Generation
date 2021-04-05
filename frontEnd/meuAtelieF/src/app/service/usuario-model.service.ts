@@ -17,14 +17,15 @@ export class UsuarioModelService {
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
+  
 
   getAllProdutosModel(): Observable<ProdutoModel[]>{
     return this.http.get<ProdutoModel[]>('http://localhost:8080/produto')
   }
 
-  postProdutoModel(produtoModel: ProdutoModel): Observable<ProdutoModel>{
+  postProdutoModel(produtoModel: ProdutoModel): Observable<ProdutoModel>{ 
     let url = `http://localhost:8080/usuario/produto/novo/${environment.id}`;
     console.log(produtoModel)
-    return this.http.post<ProdutoModel>(url, produtoModel, this.token)
+    return this.http.post<ProdutoModel>(url, produtoModel, this.token,)
   }
 }
