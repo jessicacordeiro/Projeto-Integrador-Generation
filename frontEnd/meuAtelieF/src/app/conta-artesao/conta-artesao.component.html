@@ -24,115 +24,17 @@
     </div>
 
 
-    <div class="container card">
-        <div class="row row-cols-1 row-cols-md-4 card2">
-            <div class="col mb-4 ">
-                <div class="card">
-                    <img src="https://i.imgur.com/xb5BGP1.png" class="card-img-top" alt="Foto do produto">
+    <div  class="container card">
+        <div  class="row row-cols-1 row-cols-md-4 card2">
+            <div *ngFor='let item of listaProdutos' class="col mb-4 ">
+                <div  class="card">
+                    <img src="{{item.imagemProduto}}" class="card-img-top" alt="Foto do produto">
                     <div class="card-body card-atelie rounded">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Nome do Produto: <br>Descrição:<br>Preço:<br>Qtd em
-                            Estoque: </p>
+                        <h5 class="card-title">{{item.nomeProduto}}</h5>
+                        <p class="card-text">{{item.descricaoProduto}}<br>{{item.precoProduto}}<br>{{item.quantidadeProduto}}</p>
                         <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-sucess button fonte" data-toggle="modal"
                                 data-target="#edite">EDITAR</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="https://i.imgur.com/xb5BGP1.png" class="card-img-top" alt="Foto do produto">
-                    <div class="card-body card-atelie rounded">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Nome do Produto: <br>Descrição:<br>Preço:<br>Qtd em
-                            Estoque: </p>
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-sucess button fonte">EDITAR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="https://i.imgur.com/xb5BGP1.png" class="card-img-top" alt="Foto do produto">
-                    <div class="card-body card-atelie rounded">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Nome do Produto: <br>Descrição:<br>Preço:<br>Qtd em
-                            Estoque: </p>
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-sucess button fonte">EDITAR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="https://i.imgur.com/xb5BGP1.png" class="card-img-top" alt="Foto do produto">
-                    <div class="card-body card-atelie rounded">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Nome do Produto: <br>Descrição:<br>Preço:<br>Qtd em
-                            Estoque: </p>
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-sucess button fonte">EDITAR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="https://i.imgur.com/xb5BGP1.png" class="card-img-top" alt="Foto do produto">
-                    <div class="card-body card-atelie rounded">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Nome do Produto: <br>Descrição:<br>Preço:<br>Qtd em
-                            Estoque: </p>
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-sucess button fonte">EDITAR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="https://i.imgur.com/xb5BGP1.png" class="card-img-top" alt="Foto do produto">
-                    <div class="card-body card-atelie rounded">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Nome do Produto: <br>Descrição:<br>Preço:<br>Qtd em
-                            Estoque: </p>
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-sucess button fonte">EDITAR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="https://i.imgur.com/xb5BGP1.png" class="card-img-top" alt="Foto do produto">
-                    <div class="card-body card-atelie rounded">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Nome do Produto: <br>Descrição:<br>Preço:<br>Qtd em
-                            Estoque: </p>
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-sucess button fonte">EDITAR</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="https://i.imgur.com/xb5BGP1.png" class="card-img-top" alt="Foto do produto">
-                    <div class="card-body card-atelie rounded">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Nome do Produto: <br>Descrição:<br>Preço:<br>Qtd em
-                            Estoque: </p>
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-sucess button fonte">EDITAR</button>
                         </div>
                     </div>
                 </div>

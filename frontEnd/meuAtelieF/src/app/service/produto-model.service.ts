@@ -18,4 +18,7 @@ export class ProdutoModelService {
   getAllProdutosModel(): Observable<ProdutoModel[]>{
     return this.http.get<ProdutoModel[]>('http://localhost:8080/produto', this.token)
   }
+  getProdutosByNome(nomeProduto: string): Observable<ProdutoModel[]>{
+    return this.http.get<ProdutoModel[]>('http://localhost:8080/produto');
+  }
 }
