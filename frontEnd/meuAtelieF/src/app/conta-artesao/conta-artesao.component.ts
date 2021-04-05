@@ -21,23 +21,19 @@ export class ContaArtesaoComponent implements OnInit {
   myform : FormGroup
   nome:string
   
-
-  
   constructor(
     private router: Router,
     private usuarioModelService: UsuarioModelService,
     private formbuilder :  FormBuilder,
-    private produtoService: ProdutoModelService 
-      
-    
-    
-  
+    private produtoService: ProdutoModelService ,
+ 
     ) { }
 
   ngOnInit() {
     if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
+    this.findAllProdutos()
 
     this.myform = this.formbuilder.group({
       categorias : [null],
@@ -47,14 +43,16 @@ export class ContaArtesaoComponent implements OnInit {
       quantidadeProduto : [null],
       imagemProduto : [null]
     })
+    
   }
 
   cadastrar(){
     this.usuarioModelService.postProdutoModel(this.produtoModel).subscribe((resp: ProdutoModel)=>{
       this.produtoModel = resp 
-      this.reset()
-
       alert('Produto cadastrado com sucesso!')
+      this.produtoModel = new ProdutoModel()
+      this.findAllProdutos()
+      this.reset()
     })
   }
 
@@ -69,5 +67,12 @@ export class ContaArtesaoComponent implements OnInit {
         this.listaProdutos = resp
       })
   
+    }
+
+
+    findAllProdutos(){
+      this.produtoService.getAllProdutosModel().subscribe((resp :ProdutoModel[])=>{
+      this.listaProdutos = resp
+      })
     }
   }
