@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { ProdutoModel } from '../modal/ProdutoModel';
 import { UsuarioLogin } from '../modal/UsuarioLogin';
 import { UsuarioModel } from '../modal/UsuarioModel';
 import { AuthService } from '../service/auth.service';
+import { ProdutoModelService } from '../service/produto-model.service';
+
 
 @Component({
   selector: 'app-menu',
@@ -18,13 +21,16 @@ export class MenuComponent implements OnInit {
   nome = environment.usuario
   id = environment.id
   token = environment.token
-  
+  nome2 : string
+  listaProdutos: ProdutoModel[]
 
   constructor(
     private authService: AuthService,
     private auth: AuthService,
     private router : Router,
-    public auth2 : AuthService
+    public auth2 : AuthService,
+    private produtoService: ProdutoModelService,
+    
   ) { }
 
  
@@ -84,6 +90,15 @@ export class MenuComponent implements OnInit {
     environment.usuario=''
   
     alert('Você foi deslogado')
+  }
+  findByNome(){
+    
+    this.produtoService.getProdutosByNome(this.nome2).subscribe((resp: ProdutoModel[]) => {
+      this.listaProdutos = resp
+      console.log(this.nome2)
+      alert('Chama no deu bom')
+    })
+
   }
 
 }

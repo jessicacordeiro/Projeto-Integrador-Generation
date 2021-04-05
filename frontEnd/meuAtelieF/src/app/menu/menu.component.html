@@ -5,8 +5,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <form class="form-inline my-2 my-lg-0" id="divBusca">
-        <input class="fonte" type="text" id="txtBusca" placeholder="Buscar produtos" />
-        <button class="border-0 ml-auto mr-2">
+        <input [(ngModel)]='nome2' class="fonte" type="text" id="txtBusca" placeholder="Buscar produtos" name="txtBusca" />
+        <button class="border-0 ml-auto mr-2" (click)='findByNome()'> 
             <img src="../../assets/logoPesquisa.png" id="btnBusca" alt="Buscar" width="40px" height="20px" />
         </button>
     </form>
@@ -72,7 +72,7 @@
                             <div class="form-group" style="margin-top: 30px;">
                                 <label class="mb-0 ml-2" for="formGroupExampleInput">Nome Completo:</label>
                                 <input [(ngModel)]='usuarioModel.nomeCompleto' type="text" class="form-control"
-                                    id="nome" placeholder="" name="nomeCompleto">
+                                    id="nomeCompleto" placeholder="" name="nomeCompleto">
                             </div>
                             <div class="form-group">
                                 <label class="mb-0 ml-2" for="formGroupExampleInput2">Endereço:</label>
@@ -87,7 +87,7 @@
                             <div class="form-group">
                                 <label class="mb-0 ml-2" for="formGroupExampleInput2">Usuário:</label>
                                 <input [(ngModel)]='usuarioModel.nomeUsuario' type="text" class="form-control"
-                                    id="usuario" placeholder="" name="nomeUsuario">
+                                    id="nomeUsuario" placeholder="" name="nomeUsuario">
                             </div>
                             <div class="form-group">
                                 <label class="mb-0 ml-2" for="formGroupExampleInput">E-mail:</label>
@@ -102,7 +102,7 @@
                             <div class="form-group">
                                 <label class="mb-0 ml-2" for="formGroupExampleInput2">Confirmar Senha:</label>
                                 <input [(ngModel)]='usuarioModel.senha' type="password" class="form-control"
-                                    id="confirmarSenha" placeholder="" name="senha">
+                                    id="confirmarSenha" placeholder="" name="confirmarSenha">
                             </div>
                         </form>
 
