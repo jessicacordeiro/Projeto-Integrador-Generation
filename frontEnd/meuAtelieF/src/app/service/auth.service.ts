@@ -16,12 +16,18 @@ export class AuthService {
     private http:HttpClient
     )  { }
 
+    
+
     entrar(usuarioLogin:UsuarioLogin):Observable<UsuarioLogin>{ 
       return this.http.post<UsuarioLogin>('http://localhost:8080/usuario/logar',usuarioLogin)
     }
    
     cadastrar(usuarioModel:UsuarioModel):Observable<UsuarioModel>{ 
       return this.http.post<UsuarioModel>('http://localhost:8080/usuario/cadastrar',usuarioModel)
+    }
+
+    getByIdUser() : Observable<UsuarioModel>{
+      return this.http.get<UsuarioModel>(`http://localhost:8080/usuario/${environment.id}`)
     }
 
     logado(){

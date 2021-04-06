@@ -60,7 +60,7 @@ public class UsuarioController {
 		return new ResponseEntity<ProdutoModel>(cadastro, HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/produto/compra/{id_Produto}/{id_Usuario}")
+	@PutMapping("/compra/{id_Produto}/{id_Usuario}")
 	public ResponseEntity<?> novaCompra(
 			@PathVariable(value = "id_Produto") Long idProduto,
 			@PathVariable(value = "id_Usuario") Long idUsuario){
@@ -70,6 +70,9 @@ public class UsuarioController {
 		}
 		return new ResponseEntity<UsuarioModel>(compra, HttpStatus.CREATED);
 	}
+	
+	
+	
 	
 	@PostMapping("/cadastrar")
 	public ResponseEntity<UsuarioModel> Post(@RequestBody UsuarioModel usuario){

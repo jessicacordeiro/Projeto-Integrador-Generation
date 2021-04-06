@@ -38,7 +38,7 @@ public class ProdutoModel {
 	private String descricaoProduto;
 
 	@NotNull
-	private double precoProduto;
+	private String precoProduto;
 
 	private int quantidadeProduto;
 
@@ -46,8 +46,6 @@ public class ProdutoModel {
 	@Size(min = 0, max = 200)
 	private String imagemProduto;
 
-	@Size(min = 0, max = 1000)
-	private String avaliacaoProduto;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "criador")
@@ -66,6 +64,14 @@ public class ProdutoModel {
 		this.id = id;
 	}
 
+	public CategoriaAceitas getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(CategoriaAceitas categorias) {
+		this.categorias = categorias;
+	}
+
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
@@ -82,12 +88,11 @@ public class ProdutoModel {
 		this.descricaoProduto = descricaoProduto;
 	}
 
-	
-	public double getPrecoProduto() {
+	public String getPrecoProduto() {
 		return precoProduto;
 	}
 
-	public void setPrecoProduto(double precoProduto) {
+	public void setPrecoProduto(String precoProduto) {
 		this.precoProduto = precoProduto;
 	}
 
@@ -107,22 +112,6 @@ public class ProdutoModel {
 		this.imagemProduto = imagemProduto;
 	}
 
-	public String getAvaliacaoProduto() {
-		return avaliacaoProduto;
-	}
-
-	public void setAvaliacaoProduto(String avaliacaoProduto) {
-		this.avaliacaoProduto = avaliacaoProduto;
-	}
-
-	public CategoriaAceitas getCategorias() {
-		return categorias;
-	}
-
-	public void setCategorias(CategoriaAceitas categorias) {
-		this.categorias = categorias;
-	}
-
 	public UsuarioModel getCriadoPor() {
 		return criadoPor;
 	}
@@ -138,6 +127,8 @@ public class ProdutoModel {
 	public void setCompradoPor(List<UsuarioModel> compradoPor) {
 		this.compradoPor = compradoPor;
 	}
+
+	
 	
 	
 }

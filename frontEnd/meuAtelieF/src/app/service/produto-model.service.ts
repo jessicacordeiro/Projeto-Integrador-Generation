@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
@@ -19,6 +19,7 @@ export class ProdutoModelService {
     return this.http.get<ProdutoModel[]>('http://localhost:8080/produto', this.token)
   }
   getProdutosByNome(nomeProduto: string): Observable<ProdutoModel[]>{
-    return this.http.get<ProdutoModel[]>('http://localhost:8080/produto');
+    const params = new HttpParams().append('nomeProduto',nomeProduto)
+    return this.http.get<ProdutoModel[]>('http://localhost:8080/produto/produtos',{params});
   }
 }

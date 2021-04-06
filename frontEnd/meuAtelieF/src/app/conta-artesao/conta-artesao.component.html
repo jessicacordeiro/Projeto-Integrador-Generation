@@ -26,12 +26,12 @@
 
     <div  class="container card">
         <div  class="row row-cols-1 row-cols-md-4 card2">
-            <div *ngFor='let item of listaProdutos' class="col mb-4 ">
+            <div *ngFor='let item of user.meusProdutos' class="col mb-4 ">
                 <div  class="card">
                     <img src="{{item.imagemProduto}}" class="card-img-top" alt="Foto do produto">
                     <div class="card-body card-atelie rounded">
                         <h5 class="card-title">{{item.nomeProduto}}</h5>
-                        <p class="card-text">{{item.descricaoProduto}}<br>{{item.precoProduto}}<br>{{item.quantidadeProduto}}</p>
+                        <p class="card-text">{{item.descricaoProduto}}<br>R$ {{item.precoProduto}}<br>Estoque: {{item.quantidadeProduto}}</p>
                         <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-sucess button fonte" data-toggle="modal"
                                 data-target="#edite">EDITAR</button>
