@@ -60,73 +60,22 @@
     <h2 class="text-center mt-5">Produtos em Destaque</h2>
         <div class="row">
             <div class="col-md-12">
-                <div id="carouselProduct" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="card-deck mt-5">
-                                        <div class="card card-backgroud">
-                                            <img class="card-img-top" src="../../assets/ex-produto-1.png" alt="Imagem de capa 
+                <div  id="carouselProduct" class="carousel slide" data-ride="carousel">
+                    <div  class="carousel-inner">
+                        <div  class="carousel-item active" >
+                            <div class="row" >
+                                <div  class="col-md-3" *ngFor='let item of listProdutos | slice:0:4 ; index as i' >
+                                    <div  class="card-deck mt-5">
+                                        <div class="card card-backgroud ">
+                                            <img class="card-img-top" src="{{item.imagemProduto}}" alt="Imagem de capa 
                                             do card">
                                             <div class="card-body">
-                                                <h4 class="card-title">Banco de mesa de centro</h4>
-                                                <p class="card-text"><small class="text-muted">Área externa</small></p>
-                                                <h5 class="card-text">R$300,00</h5>
+                                                <h4 class="card-title">{{item.nomeProduto}}</h4>
+                                                <p class="card-text"><small class="text-muted">{{item.categorias}}</small></p>
+                                                <h5 class="card-text">R${{item.precoProduto}}</h5>
                                                 <div class="d-flex justify-content-center mt-3">
                                                     <button class="button-add">ADICIONAR <img src="https://i.imgur.com/m6Id4HL.png" alt=""
                                                             width="25px" height="25px"></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="card-deck mt-5">
-                                        <div class="card card-backgroud">
-                                            <img class="card-img-top" src="../../assets/ex-produto-1.png" alt="Imagem de capa 
-                                            do card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Banco de mesa de centro</h4>
-                                                <p class="card-text"><small class="text-muted">Área externa</small></p>
-                                                <h5 class="card-text">R$300,00</h5>
-                                                <div class="d-flex justify-content-center mt-3">
-                                                    <button class="button-add">ADICIONAR <img src="https://i.imgur.com/m6Id4HL.png" alt=""
-                                                    width="25px" height="25px"></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="card-deck mt-5">
-                                        <div class="card card-backgroud">
-                                            <img class="card-img-top" src="../../assets/ex-produto-1.png" alt="Imagem de capa 
-                                            do card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Banco de mesa de centro</h4>
-                                                <p class="card-text"><small class="text-muted">Área externa</small></p>
-                                                <h5 class="card-text">R$300,00</h5>
-                                                <div class="d-flex justify-content-center mt-3">
-                                                    <button class="button-add">ADICIONAR <img src="https://i.imgur.com/m6Id4HL.png" alt=""
-                                                    width="25px" height="25px"></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="card-deck mt-5">
-                                        <div class="card card-backgroud">
-                                            <img class="card-img-top" src="../../assets/ex-produto-1.png" alt="Imagem de capa 
-                                            do card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Banco de mesa de centro</h4>
-                                                <p class="card-text"><small class="text-muted">Área externa</small></p>
-                                                <h5 class="card-text">R$300,00</h5>
-                                                <div class="d-flex justify-content-center mt-3">
-                                                    <button class="button-add">ADICIONAR <img src="https://i.imgur.com/m6Id4HL.png" alt=""
-                                                    width="25px" height="25px"></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,69 +85,18 @@
                         </div>
                         <div class="carousel-item">
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="card-deck mt-5">
-                                        <div class="card card-backgroud">
-                                            <img class="card-img-top" src="../../assets/ex-produto-1.png" alt="Imagem de capa 
+                                <div class="col-md-3" *ngFor='let item of listProdutos | slice:0:4 ; index as i'>
+                                    <div  class="card-deck mt-5">
+                                        <div class="card card-backgroud ">
+                                            <img class="card-img-top" src="{{item.imagemProduto}}" alt="Imagem de capa 
                                             do card">
                                             <div class="card-body">
-                                                <h4 class="card-title">Banco de mesa de centro</h4>
-                                                <p class="card-text"><small class="text-muted">Área externa</small></p>
-                                                <h5 class="card-text">R$300,00</h5>
+                                                <h4 class="card-title">{{item.nomeProduto}}</h4>
+                                                <p class="card-text"><small class="text-muted">{{item.categorias}}</small></p>
+                                                <h5 class="card-text">R${{item.precoProduto}}</h5>
                                                 <div class="d-flex justify-content-center mt-3">
                                                     <button class="button-add">ADICIONAR <img src="https://i.imgur.com/m6Id4HL.png" alt=""
                                                             width="25px" height="25px"></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="card-deck mt-5">
-                                        <div class="card card-backgroud">
-                                            <img class="card-img-top" src="../../assets/ex-produto-1.png" alt="Imagem de capa 
-                                            do card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Banco de mesa de centro</h4>
-                                                <p class="card-text"><small class="text-muted">Área externa</small></p>
-                                                <h5 class="card-text">R$300,00</h5>
-                                                <div class="d-flex justify-content-center mt-3">
-                                                    <button class="button-add">ADICIONAR <img src="https://i.imgur.com/m6Id4HL.png" alt=""
-                                                    width="25px" height="25px"></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="card-deck mt-5">
-                                        <div class="card card-backgroud">
-                                            <img class="card-img-top" src="../../assets/ex-produto-1.png" alt="Imagem de capa 
-                                            do card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Banco de mesa de centro</h4>
-                                                <p class="card-text"><small class="text-muted">Área externa</small></p>
-                                                <h5 class="card-text">R$300,00</h5>
-                                                <div class="d-flex justify-content-center mt-3">
-                                                    <button class="button-add">ADICIONAR <img src="https://i.imgur.com/m6Id4HL.png" alt=""
-                                                    width="25px" height="25px"></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="card-deck mt-5">
-                                        <div class="card card-backgroud">
-                                            <img class="card-img-top" src="../../assets/ex-produto-1.png" alt="Imagem de capa 
-                                            do card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Banco de mesa de centro</h4>
-                                                <p class="card-text"><small class="text-muted">Área externa</small></p>
-                                                <h5 class="card-text">R$300,00</h5>
-                                                <div class="d-flex justify-content-center mt-3">
-                                                    <button class="button-add">ADICIONAR <img src="https://i.imgur.com/m6Id4HL.png" alt=""
-                                                    width="25px" height="25px"></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -216,8 +114,8 @@
                     <span class="carousel-control-next-icon indicador-d" aria-hidden="true"></span>
                     <span class="sr-only">Próximo</span>
                   </a>
-                <a class="d-flex justify-content-end mt-2" style="font-weight: bold;">veja + produtos</a>
             </div>
+            <a routerLink='/produtos' class="d-flex justify-content-end " style="font-weight: bold;">veja + produtos</a>
         </div>
     </div>
 
@@ -351,11 +249,83 @@
                     <span class="carousel-control-next-icon indicador-d" aria-hidden="true"></span>
                     <span class="sr-only">Próximo</span>
                   </a>
-                <a class="d-flex justify-content-end mt-0 mr-3" style="font-weight: bold;">+ seja um parceiro</a>
             </div>
+            <a class="d-flex justify-content-end mt-0 mr-3" style="font-weight: bold;" data-toggle="modal" data-target="#mymodal2">+ seja um parceiro </a>
         </div>
   </div>
   <!--/ARTESÃOS EM DESTAQUE-->
 
 
 </section>
+
+<!-- Modal-Cadastrar -->
+<div class="modal fade" id="mymodal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
+        <div class="modal-content modal-personalizado backgroundModal">
+            <div class="container-fluid">
+                <div class="row ">
+                    <div style="border-radius: 20px;" class="col-md-6">
+
+                        <h3 class="text-center mt-5 fonte negrito">CADASTRAR</h3>
+                        <hr width="200px">
+
+                        <form class="fonte negrito">
+                            <div class="form-group" style="margin-top: 30px;">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput">Nome Completo:</label>
+                                <input [(ngModel)]='usuarioModel.nomeCompleto' type="text" class="form-control"
+                                    id="nomeCompleto" placeholder="" name="nomeCompleto">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput2">Endereço:</label>
+                                <input [(ngModel)]='usuarioModel.endereco' type="adress" class="form-control"
+                                    id="endereco" placeholder="" name="endereco">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput">CPF:</label>
+                                <input [(ngModel)]='usuarioModel.cpf' type="text" class="form-control" id="cpf"
+                                    placeholder="" name="cpf">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput2">Usuário:</label>
+                                <input [(ngModel)]='usuarioModel.nomeUsuario' type="text" class="form-control"
+                                    id="nomeUsuario" placeholder="" name="nomeUsuario">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput">E-mail:</label>
+                                <input [(ngModel)]='usuarioModel.email' type="email" class="form-control" id="email"
+                                    placeholder="" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput2">Senha:</label>
+                                <input (input)='confirmSenha($event)' type="password" class="form-control" id="senha"
+                                    placeholder="" name="senha">
+                            </div>
+                            <div class="form-group">
+                                <label class="mb-0 ml-2" for="formGroupExampleInput2">Confirmar Senha:</label>
+                                <input [(ngModel)]='usuarioModel.senha' type="password" class="form-control"
+                                    id="confirmarSenha" placeholder="" name="confirmarSenha">
+                            </div>
+                        </form>
+
+                        <div class="d-flex justify-content-center mt-2 mb-5 mt-4">
+                            <button id="button1" type="submit"
+                                class="btn btn-dark mr-3 mt-2 mb-2 backgroundbotton text-dark fonte negrito"
+                                data-dismiss="modal">Cancelar</button>
+                            <button id="button2" type="submit"
+                                class="btn btn-dark mt-2 mb-2 backgroundbotton text-dark fonte negrito"
+                                (click)='cadastrar()' data-dismiss="modal">Cadastrar</button>
+                        </div>
+
+
+                    </div>
+                    <div style="border-radius: 20px;" class="col-md-6 mt-5">
+                        <img class="img-fluid" style="margin-top: 100px;" src="../../assets/logoEntrar.png" alt=""
+                            width="350px" height="350px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- \Modal-Cadastrar -->

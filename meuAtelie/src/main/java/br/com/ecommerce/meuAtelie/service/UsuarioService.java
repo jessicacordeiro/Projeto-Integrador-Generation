@@ -3,6 +3,7 @@ package br.com.ecommerce.meuAtelie.service;
 import java.nio.charset.Charset;
 import org.apache.commons.codec.binary.Base64;
 
+import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -71,6 +72,11 @@ public class UsuarioService {
 		}
 		return null;
 	}
+	
+
+	
+	
+	
 	
 	// Validar Lista de Compradores por Nome
 	public Optional<UsuarioModel> pegarUsuarios(String nome){

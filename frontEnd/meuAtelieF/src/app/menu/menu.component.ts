@@ -1,6 +1,8 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { ContaArtesaoComponent } from '../conta-artesao/conta-artesao.component';
 import { ProdutoModel } from '../modal/ProdutoModel';
 import { UsuarioLogin } from '../modal/UsuarioLogin';
 import { UsuarioModel } from '../modal/UsuarioModel';
@@ -23,6 +25,7 @@ export class MenuComponent implements OnInit {
   token = environment.token
   nome2 : string
   listaProdutos: ProdutoModel[]
+  
 
   constructor(
     private authService: AuthService,
@@ -30,6 +33,7 @@ export class MenuComponent implements OnInit {
     private router : Router,
     public auth2 : AuthService,
     private produtoService: ProdutoModelService,
+    
     
   ) { }
 
