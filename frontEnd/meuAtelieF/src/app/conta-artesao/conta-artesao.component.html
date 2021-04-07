@@ -52,29 +52,16 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">ID:</th>
-                            <th scope="col">Vendedor(e):</th>
+                            <th scope="col">Produto:</th>
                             <th scope="col">Preço:</th>
-                            <th scope="col">Nickname:</th>
+                            <th scope="col">Vendedor:</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
+                        <tr  *ngFor='let item of user.minhasCompras'>
+                            <td>{{item.nomeProduto}}</td>
+                            <td>{{item.precoProduto}}</td>
+                            <td>{{item.categorias}}</td>
                         </tr>
                     </tbody>
                 </table>

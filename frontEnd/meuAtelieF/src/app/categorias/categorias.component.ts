@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProdutoModel } from '../modal/ProdutoModel';
+import { AuthService } from '../service/auth.service';
+import { ProdutoModelService } from '../service/produto-model.service';
 
 @Component({
   selector: 'app-categorias',
@@ -6,10 +10,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categorias.component.css']
 })
 export class CategoriasComponent implements OnInit {
+  listProdutos: ProdutoModel[]
+  constructor(
+    private router: Router,
+    private produtoService: ProdutoModelService ,
+    private authService:AuthService,
+  ) { }
 
-  constructor() { }
+  ngOnInit(){
+    this.findAllProdutos()
+  }
 
-  ngOnInit(): void {
+
+  findAllProdutos(){
+      
+    this.produtoService.getAllProdutosModel().subscribe((resp :ProdutoModel[])=>{
+    this.listProdutos = resp
+
+    })
   }
 
 }

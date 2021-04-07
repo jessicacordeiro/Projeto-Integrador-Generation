@@ -1,5 +1,4 @@
-
-
+<section>
     <div class="container-flex  d-flex justify-content-center">
       <h5 class="card-title text-center texto categoria absolute">PRODUTOS</h5>
         <img class="img-banner " src="https://cdn.discordapp.com/attachments/810919827170263093/825121660055060500/ambientado-pallet-header.png" alt="Foto da categoria" width="100%">
@@ -25,59 +24,25 @@
                        <button class="ml-3 botao-preco">MÁXIMO</button>
                    </div>
             </div>
-                <div class="col-md-8">
-                    <div class="card-deck">
-                        <div class="card">
-                          <img class="card-img-top" src="https://i.imgur.com/xb5BGP1.png" alt="Imagem de capa do card">
-                          <div class="card-body">
-                            <h5 class="card-title">Nome do produto</h5>
-                            <p class="card-text">Categoria</p>
-                            <p>R$ </p>
-                            <div class="d-flex justify-content-center">
-                                <button class="botao">ADICIONAR <img src="https://i.imgur.com/I2SQK3q.png" alt="" width="30px" height="30px"></button> 
-                            </div>
-                          </div>
-            
+            <div  class="container card mb-5">
+              <div  class="row row-cols-1 row-cols-md-4 card2 mt-4">
+                  <div *ngFor='let item of listProdutos' class="col mb-4 ">
+                    <div class="card" >
+                      <img class="card-img-top" src="{{item.imagemProduto}}" alt="Imagem de capa do card">
+                      <div class="card-body">
+                        <h5 class="card-title">{{item.nomeProduto}}</h5>
+                        <p class="card-text">{{item.categorias}}</p>
+                        <p>R$ {{item.precoProduto}} </p>
+                        <div class="d-flex justify-content-center">
+                            <button class="botao">ADICIONAR <img src="https://i.imgur.com/I2SQK3q.png" alt="" width="30px" height="30px"></button> 
                         </div>
-                        <div class="card">
-                            <img class="card-img-top" src="https://i.imgur.com/xb5BGP1.png" alt="Imagem de capa do card">
-                            <div class="card-body">
-                              <h5 class="card-title">Nome do produto</h5>
-                              <p class="card-text">Categoria</p>
-                              <p>R$ </p>
-                              <div class="d-flex justify-content-center">
-                                  <button class="botao">ADICIONAR <img src="https://i.imgur.com/I2SQK3q.png" alt="" width="30px" height="30px"></button> 
-                              </div>
-                            </div>
-              
-                          </div>
-                          <div class="card">
-                            <img class="card-img-top" src="https://i.imgur.com/xb5BGP1.png" alt="Imagem de capa do card">
-                            <div class="card-body">
-                              <h5 class="card-title">Nome do produto</h5>
-                              <p class="card-text">Categoria</p>
-                              <p>R$ </p>
-                              <div class="d-flex justify-content-center">
-                                  <button class="botao">ADICIONAR <img src="https://i.imgur.com/I2SQK3q.png" alt="" width="30px" height="30px"></button> 
-                              </div>
-                            </div>
-              
-                          </div>
-                          <div class="card">
-                            <img class="card-img-top" src="https://i.imgur.com/xb5BGP1.png" alt="Imagem de capa do card">
-                            <div class="card-body">
-                              <h5 class="card-title">Nome do produto</h5>
-                              <p class="card-text">Categoria</p>
-                              <p>R$ </p>
-                              <div class="d-flex justify-content-center">
-                                  <button class="botao">ADICIONAR <img src="https://i.imgur.com/I2SQK3q.png" alt="" width="30px" height="30px"></button> 
-                              </div>
-                            </div>
-              
-                          </div>
                       </div>
-                </div>
+        
+                    </div>
+                  </div>
+              </div>
+          </div>
         </div>
     </div>
-    
+  </section>
     
