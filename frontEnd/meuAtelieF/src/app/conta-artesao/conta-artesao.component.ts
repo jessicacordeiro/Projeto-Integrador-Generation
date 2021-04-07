@@ -25,10 +25,10 @@ export class ContaArtesaoComponent implements OnInit {
   nome2 : string
   listaProdutos: ProdutoModel[]
   user : UsuarioModel = new UsuarioModel()
+  produto: ProdutoModel
+  produtoModel2: ProdutoModel = new ProdutoModel()
   
-  
-  
-  
+
   constructor(
     private router: Router,
     private usuarioModelService: UsuarioModelService,
@@ -95,9 +95,6 @@ export class ContaArtesaoComponent implements OnInit {
       })
     }
 
-
-
-
     findByNome(){
     
       this.produtoService.getProdutosByNome(this.nome2).subscribe((resp: ProdutoModel[]) => {
@@ -106,5 +103,19 @@ export class ContaArtesaoComponent implements OnInit {
         alert('Chama no deu bom')
       })
   
+    }
+
+    findById(idProduto: number){
+      this.produtoService.getProdutoById(idProduto).subscribe((resp: ProdutoModel) => {
+        this.produto = resp
+        console.log(idProduto)
+        console.log(resp)
+      })
+    }
+
+    editar(){
+      this.produtoService.putProduto(this.produtoModel).subscribe((resp: ProdutoModel) => {
+        this.produtoModel = resp
+      })
     }
   }

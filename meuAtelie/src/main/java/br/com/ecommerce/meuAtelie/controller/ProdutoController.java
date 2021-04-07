@@ -1,6 +1,8 @@
 package br.com.ecommerce.meuAtelie.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,8 +62,19 @@ public class ProdutoController {
 	}
 
 	@PutMapping
-	public ResponseEntity<ProdutoModel> put(@Valid @RequestBody ProdutoModel produto) {
-		return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.save(produto));
+	public ResponseEntity<Object> put(@Valid @RequestBody ProdutoModel produto) {
+		Optional<ProdutoModel> produtoExistente = produtoRepository.findById(produto.getId());
+		if (produtoExistente.isPresent()) {
+			produtoExistente.get().setCategorias(produto.getCategorias());
+			produtoExistente.get().setImagemProduto(produto.getImagemProduto());
+			produtoExistente.get().setNomeProduto(produto.getNomeProduto());
+			produtoExistente.get().setDescricaoProduto(produto.getDescricaoProduto());
+			produtoExistente.get().setPrecoProduto(produto.getPrecoProduto());
+			produtoExistente.get().setQuantidadeProduto(produto.getQuantidadeProduto());
+			return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(produtoExistente.get()));
+		} else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado...");
+		}
 	}
 
 	@DeleteMapping("/{id}")

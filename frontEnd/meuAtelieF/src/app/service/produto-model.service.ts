@@ -9,6 +9,8 @@ import { ProdutoModel } from '../modal/ProdutoModel';
 })
 export class ProdutoModelService {
 
+  produtoModel: ProdutoModel
+
   constructor(private http: HttpClient) { }
 
   token = {
@@ -18,8 +20,18 @@ export class ProdutoModelService {
   getAllProdutosModel(): Observable<ProdutoModel[]>{
     return this.http.get<ProdutoModel[]>('http://localhost:8080/produto', this.token)
   }
+
   getProdutosByNome(nomeProduto: string): Observable<ProdutoModel[]>{
     const params = new HttpParams().append('nomeProduto',nomeProduto)
     return this.http.get<ProdutoModel[]>('http://localhost:8080/produto/produtos',{params});
   }
+
+  getProdutoById(idProduto: number): Observable<ProdutoModel>{
+    return this.http.get<ProdutoModel>(`http://localhost:8080/produto/${idProduto}`, this.token);
+  }
+
+  putProduto(produto: ProdutoModel): Observable<ProdutoModel>{
+    return this.http.put<ProdutoModel>('http://localhost:8080/produto', this.token);
+  }
+
 }
