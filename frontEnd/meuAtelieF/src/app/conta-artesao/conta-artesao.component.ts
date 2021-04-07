@@ -25,7 +25,7 @@ export class ContaArtesaoComponent implements OnInit {
   nome2 : string
   listaProdutos: ProdutoModel[]
   user : UsuarioModel = new UsuarioModel()
- 
+  
   
   
   
@@ -94,6 +94,8 @@ export class ContaArtesaoComponent implements OnInit {
         this.user = resp
       })
     }
+
+
 
 
     findByNome(){
