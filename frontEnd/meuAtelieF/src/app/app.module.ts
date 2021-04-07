@@ -12,6 +12,7 @@ import { ContaArtesaoComponent } from './conta-artesao/conta-artesao.component';
 import { HomeComponent } from './home/home.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { ProdutosComponent } from './produtos/produtos.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 
 
@@ -25,6 +26,7 @@ import { ProdutosComponent } from './produtos/produtos.component';
     HomeComponent,
     CategoriasComponent,
     ProdutosComponent,
+    CarrinhoComponent,
   
   ],
   imports: [

@@ -1,0 +1,8 @@
+<h3>Cart</h3>
+
+<div class="cart-item" *ngFor="let item of items">
+<img src="{{item.imagemProduto}}" alt=""><br>
+  <span>{{item.nomeProduto}}</span><br>
+  <span>{{item.precoProduto}}</span>
+</div>
+<button (click)='limparCarrinho()'>clear</button>
