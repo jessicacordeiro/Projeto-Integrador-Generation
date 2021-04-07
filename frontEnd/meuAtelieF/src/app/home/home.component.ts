@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment.prod';
 import { ProdutoModel } from '../modal/ProdutoModel';
 import { UsuarioModel } from '../modal/UsuarioModel';
 import { AuthService } from '../service/auth.service';
+import { CartService } from '../service/cart.service';
 import { ProdutoModelService } from '../service/produto-model.service';
 import { UsuarioModelService } from '../service/usuario-model.service';
 
@@ -30,7 +31,9 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private produtoService: ProdutoModelService ,
     private authService: AuthService,
-    private formbuilder :  FormBuilder
+    private formbuilder :  FormBuilder,
+    private cartService : CartService
+
     
     
   ) { }
@@ -86,6 +89,11 @@ export class HomeComponent implements OnInit {
   reset() {
     this.myform.reset();
   
+}
+
+addToCart(product) {
+  this.cartService.addToCart(product);
+  window.alert('Your product has been added to the cart!');
 }
 
 

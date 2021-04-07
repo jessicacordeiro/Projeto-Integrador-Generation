@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProdutoModel } from '../modal/ProdutoModel';
 import { AuthService } from '../service/auth.service';
+import { CartService } from '../service/cart.service';
 import { ProdutoModelService } from '../service/produto-model.service';
 
 @Component({
@@ -12,11 +13,12 @@ import { ProdutoModelService } from '../service/produto-model.service';
 export class ProdutosComponent implements OnInit {
 
   listProdutos: ProdutoModel[]
+  product = ProdutoModel;
+  
 
   constructor(
-    private router: Router,
     private produtoService: ProdutoModelService ,
-    private authService:AuthService,
+    private cartService : CartService
     
   ) { }
 
@@ -33,6 +35,9 @@ export class ProdutosComponent implements OnInit {
 
     })
   }
-
+  addToCart(product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
+  }
 
 }

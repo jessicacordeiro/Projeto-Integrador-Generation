@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { ContaArtesaoComponent } from './conta-artesao/conta-artesao.component';
 import { DesenvolvedoresComponent } from './desenvolvedores/desenvolvedores.component';
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'rodape', component: RodapeComponent},
   {path:'categorias', component: CategoriasComponent},
   {path:'conta-artesao', component: ContaArtesaoComponent},
-  {path:'desenvolvedores', component: DesenvolvedoresComponent}
+  {path:'desenvolvedores', component: DesenvolvedoresComponent},
+  {path:'carrinho', component: CarrinhoComponent}
 
 ];
 
