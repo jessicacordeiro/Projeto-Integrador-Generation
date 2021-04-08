@@ -31,7 +31,7 @@ export class ProdutoModelService {
   }
 
   putProduto(produto: ProdutoModel): Observable<ProdutoModel>{
-    return this.http.put<ProdutoModel>('http://localhost:8080/produto', this.token);
+    return this.http.put<ProdutoModel>('http://localhost:8080/produto',produto, this.token);
   }
 
 }

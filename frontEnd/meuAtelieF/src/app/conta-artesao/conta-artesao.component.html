@@ -33,8 +33,8 @@
                         <h5 class="card-title">{{item.nomeProduto}}</h5>
                         <p class="card-text">{{item.descricaoProduto}}<br>R$ {{item.precoProduto}}<br>Estoque: {{item.quantidadeProduto}}</p>
                         <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-sucess button fonte" data-toggle="modal"
-                                data-target="#edite" (click)="findById(item.id)">EDITAR</button>
+                            <button type="button" class="btn btn-sucess button fonte" 
+                                [routerLink]="['/edit',item.id]">EDITAR</button>
                         </div>
                     </div>
                 </div>
@@ -135,35 +135,5 @@
                 </div>
             </div>
         </div>
-        <!-- Editar Produto-->
-
-
-        <!-- Modal ------------------------------------------------>
-        <div class="modal fade" id="edite" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
-                <div class="modal-content backgroundModal modal-personalizado">
-                    <div class="d-flex justify-content-center align-items-center mt-5 mb-4">
-                        <h5 class="text-center fonte">EDITE O SEU PRODUTO</h5>
-
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                    
-                                <h6 class="ml-4 fonte">QUAL É A CATEGORIA DO SEU PRODUTO: (somente é válida as que estão definidas abaixo)</h6>
-                                <div class="form-group fonte">
-                                    <label for="categorias">QUARTO | SALA | COZINHA | BANHEIRO | ÁREA EXTERNA</label>
-                                    <input [(ngModel)]='produtoModel.categorias' value="{{produto.categorias}}" type="categorias" class="form-control" id="categorias" name="categorias"  formControlName="categorias">
-                                </div>
-                        </form>
-                    </div>
-                    <div class="d-flex justify-content-center mb-4 mt-4">
-                        <button class="btn button-radius fonte" type="button" data-dismiss="modal">Cancelar</button>
-                        <button class="btn button-radius fonte" type="button" (click)='editar()'>Alterar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>

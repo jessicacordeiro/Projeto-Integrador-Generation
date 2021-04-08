@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { EditComponent } from './edit/edit.component';
 
 
 
@@ -27,6 +28,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     CategoriasComponent,
     ProdutosComponent,
     CarrinhoComponent,
+    EditComponent,
   
   ],
   imports: [
