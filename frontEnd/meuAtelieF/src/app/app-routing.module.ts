@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { AreaExternaComponent } from './categorias/area-externa/area-externa.component';
+import { BanheiroComponent } from './categorias/banheiro/banheiro.component';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { CozinhaComponent } from './categorias/cozinha/cozinha.component';
+import { QuartoComponent } from './categorias/quarto/quarto.component';
+import { SalaComponent } from './categorias/sala/sala.component';
 import { ContaArtesaoComponent } from './conta-artesao/conta-artesao.component';
 import { DesenvolvedoresComponent } from './desenvolvedores/desenvolvedores.component';
 import { EditComponent } from './edit/edit.component';
@@ -21,7 +26,12 @@ const routes: Routes = [
   {path:'conta-artesao', component: ContaArtesaoComponent},
   {path:'desenvolvedores', component: DesenvolvedoresComponent},
   {path:'carrinho', component: CarrinhoComponent},
-  {path:'edit/:id', component: EditComponent}
+  {path:'edit/:id', component: EditComponent},
+  {path:'cozinha', component: CozinhaComponent},
+  {path:'sala', component: SalaComponent},
+  {path:'banheiro', component: BanheiroComponent},
+  {path:'areaExterna', component: AreaExternaComponent},
+  {path:'quarto', component: QuartoComponent}
 
 ];
 

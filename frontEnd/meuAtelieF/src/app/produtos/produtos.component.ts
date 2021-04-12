@@ -23,6 +23,7 @@ export class ProdutosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scroll(0,0)
     this.findAllProdutos()
     
   }
@@ -37,7 +38,7 @@ export class ProdutosComponent implements OnInit {
   }
   addToCart(product) {
     this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
+    window.alert('Produto adicionado no carrinho!');
   }
 
 }

@@ -32,13 +32,15 @@ export class HomeComponent implements OnInit {
     private produtoService: ProdutoModelService ,
     private authService: AuthService,
     private formbuilder :  FormBuilder,
-    private cartService : CartService
+    private cartService : CartService,
+    public auth2 : AuthService
 
     
     
   ) { }
 
   ngOnInit()  {
+    window.scroll(0,0)
     if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
@@ -93,7 +95,7 @@ export class HomeComponent implements OnInit {
 
 addToCart(product) {
   this.cartService.addToCart(product);
-  window.alert('Your product has been added to the cart!');
+  window.alert('Produto adicionado no carrinho!');
 }
 
 

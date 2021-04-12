@@ -14,6 +14,12 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { EditComponent } from './edit/edit.component';
+import { CozinhaComponent } from './categorias/cozinha/cozinha.component';
+import { QuartoComponent } from './categorias/quarto/quarto.component';
+import { SalaComponent } from './categorias/sala/sala.component';
+import { BanheiroComponent } from './categorias/banheiro/banheiro.component';
+import { AreaExternaComponent } from './categorias/area-externa/area-externa.component';
+
 
 
 
@@ -29,6 +35,11 @@ import { EditComponent } from './edit/edit.component';
     ProdutosComponent,
     CarrinhoComponent,
     EditComponent,
+    CozinhaComponent,
+    QuartoComponent,
+    SalaComponent,
+    BanheiroComponent,
+    AreaExternaComponent,
   
   ],
   imports: [
