@@ -34,4 +34,28 @@ export class ProdutoModelService {
     return this.http.put<ProdutoModel>('http://localhost:8080/produto',produto, this.token);
   }
 
+  getProdutosByQuarto(): Observable<ProdutoModel[]>{
+    const params = new HttpParams().append('categoria','QUARTO')
+    return this.http.get<ProdutoModel[]>('http://localhost:8080/produto/produtos/categoria',{params});
+  }
+
+  getProdutosByCozinha(): Observable<ProdutoModel[]>{
+    const params = new HttpParams().append('categoria','COZINHA')
+    return this.http.get<ProdutoModel[]>('http://localhost:8080/produto/produtos/categoria',{params});
+  }
+
+  getProdutosByBanheiro(): Observable<ProdutoModel[]>{
+    const params = new HttpParams().append('categoria','BANHEIRO')
+    return this.http.get<ProdutoModel[]>('http://localhost:8080/produto/produtos/categoria',{params});
+  }
+
+  getProdutosBySala(): Observable<ProdutoModel[]>{
+    const params = new HttpParams().append('categoria','SALA')
+    return this.http.get<ProdutoModel[]>('http://localhost:8080/produto/produtos/categoria',{params});
+  }
+
+  getProdutosByAreaExterna(): Observable<ProdutoModel[]>{
+    const params = new HttpParams().append('categoria','AREAEXTERNA')
+    return this.http.get<ProdutoModel[]>('http://localhost:8080/produto/produtos/categoria',{params});
+  }
 }

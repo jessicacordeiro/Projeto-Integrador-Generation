@@ -9,7 +9,23 @@
                 <h6 class="ml-4 fonte">QUAL É A CATEGORIA DO SEU PRODUTO: (somente é válida as que estão definidas abaixo)</h6>
                 <div class="form-group fonte">
                     <label for="categorias">QUARTO | SALA | COZINHA | BANHEIRO | ÁREA EXTERNA</label>
+                    <input [(ngModel)]='produto.categorias' type="categorias" class="form-control" id="categorias" name="categorias" >
+                </div>
+                <div class="form-group fonte">
+                    <label for="nomeProduto">Nome do produto</label>
                     <input [(ngModel)]='produto.nomeProduto' type="nomeProduto" class="form-control" id="nomeProduto" name="nomeProduto" >
+                </div>
+                <div class="form-group fonte">
+                    <label for="precoProduto">Preço do produto</label>
+                    <input [(ngModel)]='produto.precoProduto' type="precoProduto" class="form-control" id="precoProduto" name="precoProduto" >
+                </div>
+                <div class="form-group fonte">
+                    <label for="descricaoProduto">descrição do Produto</label>
+                    <input [(ngModel)]='produto.descricaoProduto' type="descricaoProduto" class="form-control" id="descricaoProduto" name="descricaoProduto" >
+                </div>
+                <div class="form-group fonte">
+                    <label for="imagemProduto">Link da imagem do produto</label>
+                    <input [(ngModel)]='produto.imagemProduto' type="imagemProduto" class="form-control" id="imagemProduto" name="imagemProduto" >
                 </div>
                 <div class="d-flex justify-content-center mb-4 mt-4">
                     <button class="btn button-radius fonte" routerLink='/conta-artesao' type="button" >Cancelar</button>

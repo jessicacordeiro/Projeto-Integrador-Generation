@@ -6,8 +6,8 @@
     <div class="row">
 
         <div class="col-md-6 d-flex justify-content-start ">
-            <a class="meusAnuncios colorMenu" href="">MEUS ANÚNCIOS</a>
-            <a class="ml-4 colorMenu" href="">MINHAS COMPRAS</a>
+            <a class="meusAnuncios colorMenu" href="#meusprodutos">MEUS ANÚNCIOS</a>
+            <a class="ml-4 colorMenu" href="#minhascompras" >MINHAS COMPRAS</a>
         </div>
         <div class="col-md-6 d-flex justify-content-end">
             <button type="button" class="btn btn-sucess button2 fonte" data-toggle="modal"
@@ -24,14 +24,14 @@
     </div>
 
 
-    <div  class="container card">
+    <div id="meusprodutos" class="container card">
         <div  class="row row-cols-1 row-cols-md-4 card2">
             <div *ngFor='let item of user.meusProdutos' class="col mb-4 ">
                 <div  class="card">
                     <img src="{{item.imagemProduto}}" class="card-img-top" alt="Foto do produto">
                     <div class="card-body card-atelie rounded">
                         <h5 class="card-title">{{item.nomeProduto}}</h5>
-                        <p class="card-text">{{item.descricaoProduto}}<br>R$ {{item.precoProduto}}<br>Estoque: {{item.quantidadeProduto}}</p>
+                        <p class="card-text">{{item.descricaoProduto}}<br>{{item.precoProduto | currency:'BRL':true}}</p>
                         <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-sucess button fonte" 
                                 [routerLink]="['/edit',item.id]">EDITAR</button>
@@ -46,7 +46,7 @@
         <h2 class="d-flex justify-content-center minhasCompras fonte">MINHAS COMPRAS</h2>
     </div>
 
-    <div class="container d-flex justify-content-center listaVendas">
+    <div id="minhascompras" class="container d-flex justify-content-center listaVendas">
         <div class="row">
             <div class="col-md-6">
                 <table class="table table-hover">
