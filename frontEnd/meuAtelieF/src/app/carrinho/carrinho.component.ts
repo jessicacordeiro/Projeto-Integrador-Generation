@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { empty } from 'rxjs';
+import { ProdutoModel } from '../modal/ProdutoModel';
 import { CartService } from '../service/cart.service';
 import { ConsultaCepService } from '../service/consulta-cep.service';
 
@@ -14,6 +15,10 @@ export class CarrinhoComponent  implements OnInit {
   formulario: FormGroup;
   FormValidations : Validators
   items = this.cartService.getItems();
+  item : ProdutoModel = new ProdutoModel();
+  itemss;
+  total: number = 0;
+
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -80,6 +85,11 @@ export class CarrinhoComponent  implements OnInit {
   }
   limparCarrinho(){
     this.items = this.cartService.clearCart();
+  }
+
+  valorTotal(){
+    return this.items.map(item => item.precoProduto).reduce((a, b) => a + b,0);
+
   }
 }
 

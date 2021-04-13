@@ -6,8 +6,7 @@ export class ProdutoModel {
     public categorias: string
     public nomeProduto: string
     public descricaoProduto: string
-    public precoProduto: string
-    public quantidadeProduto: number
+    public precoProduto: number
     public imagemProduto: string
     public criadoPor : UsuarioModel
     public compradoPor : UsuarioModel[]

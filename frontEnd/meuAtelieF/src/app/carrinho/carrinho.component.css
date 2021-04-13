@@ -1,0 +1,34 @@
+.background{
+    background-color: #E5dad0
+}
+
+.radius{
+    border-radius: 20px;
+}
+
+.button{
+    border-radius: 40px;
+    border: none;
+    width: 150px;
+    height: 40px;
+    font-size: 20pt;
+    font-weight: bold;
+    background-color: #B2B2AE;
+}
+
+.btnConfirm{
+    border-radius: 20px;
+    border: none;
+    font-size: 10pt;
+    font-weight: bold;
+    background-color: #B2B2AE;
+}
+
+.color{
+    color: #DA6E40
+}
+
+input{
+    border-radius: 20px;
+    background-color: #efefed;
+}
