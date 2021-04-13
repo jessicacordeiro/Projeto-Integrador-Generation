@@ -70,7 +70,7 @@ public class ProdutoController {
 			produtoExistente.get().setNomeProduto(produto.getNomeProduto());
 			produtoExistente.get().setDescricaoProduto(produto.getDescricaoProduto());
 			produtoExistente.get().setPrecoProduto(produto.getPrecoProduto());
-			produtoExistente.get().setQuantidadeProduto(produto.getQuantidadeProduto());
+			
 			return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(produtoExistente.get()));
 		} else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado...");
