@@ -38,10 +38,9 @@ public class ProdutoModel {
 	private String descricaoProduto;
 
 	@NotNull
-	private String precoProduto;
+	private double precoProduto;
 
-	private int quantidadeProduto;
-
+	
 	@NotNull
 	@Size(min = 0, max = 200)
 	private String imagemProduto;
@@ -88,22 +87,7 @@ public class ProdutoModel {
 		this.descricaoProduto = descricaoProduto;
 	}
 
-	public String getPrecoProduto() {
-		return precoProduto;
-	}
-
-	public void setPrecoProduto(String precoProduto) {
-		this.precoProduto = precoProduto;
-	}
-
-	public int getQuantidadeProduto() {
-		return quantidadeProduto;
-	}
-
-	public void setQuantidadeProduto(int quantidadeProduto) {
-		this.quantidadeProduto = quantidadeProduto;
-	}
-
+	
 	public String getImagemProduto() {
 		return imagemProduto;
 	}
@@ -126,6 +110,14 @@ public class ProdutoModel {
 
 	public void setCompradoPor(List<UsuarioModel> compradoPor) {
 		this.compradoPor = compradoPor;
+	}
+
+	public double getPrecoProduto() {
+		return precoProduto;
+	}
+
+	public void setPrecoProduto(double precoProduto) {
+		this.precoProduto = precoProduto;
 	}
 
 	
