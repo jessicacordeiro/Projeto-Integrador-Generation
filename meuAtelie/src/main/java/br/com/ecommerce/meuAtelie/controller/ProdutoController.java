@@ -39,8 +39,8 @@ public class ProdutoController {
 		return ResponseEntity.ok(produtoRepository.findAll());
 	}
 	
-	@GetMapping("/produtos")
-	public ResponseEntity<List<ProdutoModel>> pegarPorNome(@RequestParam(defaultValue = "") String nomeProduto){
+	@GetMapping("/produtos/{nomeProduto}")
+	public ResponseEntity<List<ProdutoModel>> pegarPorNome(@PathVariable String nomeProduto){
 		return new ResponseEntity<List<ProdutoModel>>(services.pegarProdutosPorNome(nomeProduto), HttpStatus.ACCEPTED);
 	}
 	

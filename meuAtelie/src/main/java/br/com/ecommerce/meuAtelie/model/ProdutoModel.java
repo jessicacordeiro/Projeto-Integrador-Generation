@@ -37,8 +37,6 @@ public class ProdutoModel {
 	@Size(min = 0, max = 1000)
 	private String descricaoProduto;
 
-	@NotNull
-	private double precoProduto;
 
 	
 	@NotNull
@@ -46,12 +44,12 @@ public class ProdutoModel {
 	private String imagemProduto;
 
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "criador")
 	@JsonIgnoreProperties({"meusProdutos", "minhasCompras", "senha"})
 	private UsuarioModel criadoPor;
 	
-	@ManyToMany(mappedBy = "minhasCompras", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "minhasCompras", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({"senha", "meusProdutos", "minhasCompras"})
 	private List<UsuarioModel> compradoPor = new ArrayList<>();
 
@@ -88,6 +86,8 @@ public class ProdutoModel {
 	}
 
 	
+
+
 	public String getImagemProduto() {
 		return imagemProduto;
 	}

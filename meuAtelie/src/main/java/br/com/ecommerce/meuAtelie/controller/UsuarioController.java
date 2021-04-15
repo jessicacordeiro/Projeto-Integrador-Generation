@@ -88,6 +88,17 @@ public class UsuarioController {
 		return ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.save(usuario));
 	}
 	
+	@DeleteMapping("/produto/delete/{id_Produto}/{id_Usuario}")
+	public ResponseEntity<?> removerProduto(
+			@PathVariable(value = "id_Produto") Long idProduto,
+			@PathVariable(value = "id_Usuario") Long idUsuario){
+		UsuarioModel retorno = usuarioService.deletarProduto(idProduto, idUsuario);
+		if(retorno == null) {
+			return new ResponseEntity<String>("Produto ou Usuario invalido", HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<UsuarioModel>(retorno, HttpStatus.ACCEPTED);
+	}
+	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		usuarioRepository.deleteById(id);

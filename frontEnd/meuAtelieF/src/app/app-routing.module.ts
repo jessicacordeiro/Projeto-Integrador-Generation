@@ -31,7 +31,8 @@ const routes: Routes = [
   {path:'sala', component: SalaComponent},
   {path:'banheiro', component: BanheiroComponent},
   {path:'areaExterna', component: AreaExternaComponent},
-  {path:'quarto', component: QuartoComponent}
+  {path:'quarto', component: QuartoComponent},
+  {path:'produtos/search/:nome', component: ProdutosComponent},
 
 ];
 

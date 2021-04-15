@@ -27,6 +27,7 @@ export class ContaArtesaoComponent implements OnInit {
   user : UsuarioModel = new UsuarioModel()
   produto: ProdutoModel
   produtoModel2: ProdutoModel = new ProdutoModel()
+  nomeProduto : string = '';
   
 
   constructor(
@@ -43,6 +44,7 @@ export class ContaArtesaoComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
     this.findByIdUser()
+    this.findByProdutos()
 
     this.myform = this.formbuilder.group({
       categorias : [null],
@@ -75,6 +77,7 @@ export class ContaArtesaoComponent implements OnInit {
       
       this.produtoService.getAllProdutosModel().subscribe((resp :ProdutoModel[])=>{
       this.listProdutos = resp
+     
 
       })
     }
@@ -119,4 +122,26 @@ export class ContaArtesaoComponent implements OnInit {
         this.produtoModel = resp
       })
     }
+
+    apagar(idproduto: number){
+      this.produtoService.deleteProduto(idproduto,environment.id).subscribe((resp:ProdutoModel)=>{
+        this.produtoModel = resp 
+      })
+    }
+
+    findByProdutos(){
+      if(this.nomeProduto == ''){
+        this.findByIdUser()
+      } else {
+        this.produtoService.getProdutosByNome(this.nomeProduto).subscribe((resp: ProdutoModel[])=>{
+          this.user.meusProdutos = resp
+          console.log(this.nomeProduto)
+          
+        })
+      }
+  
+    }
+
+
+
   }
