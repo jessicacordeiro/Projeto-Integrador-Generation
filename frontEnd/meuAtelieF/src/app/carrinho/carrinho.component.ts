@@ -91,6 +91,14 @@ export class CarrinhoComponent  implements OnInit {
     return this.items.map(item => item.precoProduto).reduce((a, b) => a + b,0);
 
   }
+
+  efetuarCompra(){
+    alert('Compra efetuada com sucesso, será enviado um e-mail com a confirmação e os dados da compra.')
+    this.limparCarrinho()
+    this.resetaDadosForm()
+    
+    
+  }
 }
 
 

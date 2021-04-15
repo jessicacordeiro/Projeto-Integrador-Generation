@@ -16,7 +16,10 @@
     font-weight: bold;
     background-color: #F3C561;
     color: #3B2419;
+    margin-bottom: 70px;
     white-space: normal !important;
+    
+    
 }
 
 .position-button-carousel-2{
@@ -26,6 +29,7 @@
     right: 0;
     padding-bottom: 80px;
     border-radius: 100px;
+    margin-bottom: 50px;
 }
 
 .button-style-carousel-2{

@@ -40,7 +40,7 @@
             <hr>
           <button class="button" (click)='limparCarrinho()'>Limpar <i class="fa fa-trash-o color" aria-hidden="true"></i></button>
           <label class="ml-5" for="total">
-            <h4> Subtotal: {{ valorTotal() | currency:'BRL':true }}</h4>
+            <h4> Total: {{ valorTotal() | currency:'BRL':true }}</h4>
           </label>
           
           </div>
@@ -54,20 +54,29 @@
       <h1 class="text-center mb-5">Endereço de Entrega</h1>
       <div formGroupName="endereco">
         <div class="form-row">
-          <div class="form-group col-md-2 " [ngClass]="('endereco.cep')">
+          <div class="form-group col-md-5 " [ngClass]="('endereco.cep')">
             <label for="cep">CEP</label>
             <input type="text" class="form-control" id="cep" formControlName="cep">
           </div>
-          <div class="form-group col-md-5" [ngClass]="('endereco.cidade')">
+          <div class="form-group col-md-1" style="margin-top: 35px;">
+            <button (click)="consultaCEP()" type="submit" class="btn btnConfirm mb-4">Buscar</button>
+          </div>
+          <div class="form-group col-md-3" style="margin-top: 35px;">
+          <button (click)="resetaDadosForm()" type="reset" class="btn btnConfirm mb-4 ml-3">Limpar</button>
+          </div>
+          
+          
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6" [ngClass]="('endereco.cidade')">
             <label for="cidade">Cidade</label>
             <input type="text" class="form-control" id="cidade" formControlName="cidade">
           </div>
           
-          <div class="form-group col-md-5" [ngClass]="('endereco.estado')">
+          <div class="form-group col-md-6" [ngClass]="('endereco.estado')">
             <label for="estado">Estado</label>
             <input type="text" class="form-control" id="estado" formControlName="estado">
           </div>
-          
         </div>
         <div class="form-row">
           <div class="form-group col-md-5" [ngClass]="('endereco.bairro')">
@@ -90,9 +99,9 @@
         </div>
       </div>
       <div class="text-center">
-        <button (click)="consultaCEP()" type="submit" class="btn btnConfirm mb-3 mr-3">Buscar</button>
-      <button (click)="resetaDadosForm()" type="reset" class="btn btnConfirm mb-3">Limpar</button>
+        <button (click)='efetuarCompra()' type="submit" class="btn btnConfirm2 mb-4 mr-3">Efetuar Compra</button>
       </div>
+      
     </form>
   </div>
 </div>

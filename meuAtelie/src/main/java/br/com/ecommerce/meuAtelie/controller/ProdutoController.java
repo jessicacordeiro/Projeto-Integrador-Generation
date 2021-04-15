@@ -39,8 +39,8 @@ public class ProdutoController {
 		return ResponseEntity.ok(produtoRepository.findAll());
 	}
 	
-	@GetMapping("/produtos")
-	public ResponseEntity<List<ProdutoModel>> pegarPorNome(@RequestParam(defaultValue = "") String nomeProduto){
+	@GetMapping("/produtos/{nomeProduto}")
+	public ResponseEntity<List<ProdutoModel>> pegarPorNome(@PathVariable String nomeProduto){
 		return new ResponseEntity<List<ProdutoModel>>(services.pegarProdutosPorNome(nomeProduto), HttpStatus.ACCEPTED);
 	}
 	
@@ -70,7 +70,7 @@ public class ProdutoController {
 			produtoExistente.get().setNomeProduto(produto.getNomeProduto());
 			produtoExistente.get().setDescricaoProduto(produto.getDescricaoProduto());
 			produtoExistente.get().setPrecoProduto(produto.getPrecoProduto());
-			produtoExistente.get().setQuantidadeProduto(produto.getQuantidadeProduto());
+			
 			return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(produtoExistente.get()));
 		} else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado...");

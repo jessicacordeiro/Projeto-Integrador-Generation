@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { ProdutoModel } from '../modal/ProdutoModel';
+import { UsuarioModel } from '../modal/UsuarioModel';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,7 @@ export class ProdutoModelService {
   }
 
   getProdutosByNome(nomeProduto: string): Observable<ProdutoModel[]>{
-    const params = new HttpParams().append('nomeProduto',nomeProduto)
-    return this.http.get<ProdutoModel[]>('http://localhost:8080/produto/produtos',{params});
+    return this.http.get<ProdutoModel[]>(`http://localhost:8080/produto/produtos/${nomeProduto}`);
   }
 
   getProdutoById(idProduto: number): Observable<ProdutoModel>{
@@ -32,6 +32,10 @@ export class ProdutoModelService {
 
   putProduto(produto: ProdutoModel): Observable<ProdutoModel>{
     return this.http.put<ProdutoModel>('http://localhost:8080/produto',produto, this.token);
+  }
+
+  deleteProduto(idProduto : number , idUsuario :number):  Observable<ProdutoModel>{
+    return this.http.delete<ProdutoModel>(`http://localhost:8080/usuario/produto/delete/${idProduto}/${idUsuario}`,this.token);
   }
 
   getProdutosByQuarto(): Observable<ProdutoModel[]>{

@@ -5,22 +5,22 @@
     </div>
     <div class="row">
 
-        <div class="col-md-6 d-flex justify-content-start ">
-            <a class="meusAnuncios colorMenu" href="#meusprodutos">MEUS ANÚNCIOS</a>
-            <a class="ml-4 colorMenu" href="#minhascompras" >MINHAS COMPRAS</a>
+        <div class="col-md-6 d-flex justify-content-start">
+            <a class="disabled meusAnuncios colorMenu " style="margin-left: 380px;">MEUS ANÚNCIOS</a>
+            <a class="disabled meusAnuncios ml-4 colorMenu"  >MINHAS COMPRAS</a>
         </div>
-        <div class="col-md-6 d-flex justify-content-end">
-            <button type="button" class="btn btn-sucess button2 fonte" data-toggle="modal"
+        <div class="col-md-6 d-flex justify-content-end"  >
+            <button type="button" class="btn btn-sucess button2 fonte" style="margin-right: 380px;" data-toggle="modal"
                 data-target="#ExemploModalCentralizado">ANUNCIAR</button>
         </div>
     </div>
 
-    <div id="divBusca">
+    <div id="divBusca" style="margin-left: 200px;">
 
 
         <a href=""><i class="fas fa-search search"></i></a>
-        <input class="input-atelie barraPesquisar" style="background-color: #e5dad0;" type="text" id="txtBusca"
-            placeholder="Buscar por nome dos produtos" />
+        <input class="input-atelie barraPesquisar" style="background-color: #e5dad0;" type="text" id="txtBusca" name="nomeProduto" [(ngModel)]='nomeProduto' 
+            placeholder="Buscar por nome dos produtos" (keyup)='findByProdutos()' />
     </div>
 
 
@@ -35,6 +35,8 @@
                         <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-sucess button fonte" 
                                 [routerLink]="['/edit',item.id]">EDITAR</button>
+                                <button type="button" class="btn btn-sucess button fonte" (click)='apagar(item.id)'
+                                >APAGAR</button>
                         </div>
                     </div>
                 </div>

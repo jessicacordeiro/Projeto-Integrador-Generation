@@ -38,21 +38,20 @@ public class ProdutoModel {
 	private String descricaoProduto;
 
 	@NotNull
-	private String precoProduto;
+	private int precoProduto;
 
-	private int quantidadeProduto;
 
 	@NotNull
 	@Size(min = 0, max = 200)
 	private String imagemProduto;
 
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "criador")
 	@JsonIgnoreProperties({"meusProdutos", "minhasCompras", "senha"})
 	private UsuarioModel criadoPor;
 	
-	@ManyToMany(mappedBy = "minhasCompras", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "minhasCompras", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({"senha", "meusProdutos", "minhasCompras"})
 	private List<UsuarioModel> compradoPor = new ArrayList<>();
 
@@ -88,20 +87,14 @@ public class ProdutoModel {
 		this.descricaoProduto = descricaoProduto;
 	}
 
-	public String getPrecoProduto() {
+	
+
+	public int getPrecoProduto() {
 		return precoProduto;
 	}
 
-	public void setPrecoProduto(String precoProduto) {
+	public void setPrecoProduto(int precoProduto) {
 		this.precoProduto = precoProduto;
-	}
-
-	public int getQuantidadeProduto() {
-		return quantidadeProduto;
-	}
-
-	public void setQuantidadeProduto(int quantidadeProduto) {
-		this.quantidadeProduto = quantidadeProduto;
 	}
 
 	public String getImagemProduto() {

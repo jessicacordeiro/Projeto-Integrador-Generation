@@ -100,9 +100,12 @@ export class MenuComponent implements OnInit {
     this.produtoService.getProdutosByNome(this.nome2).subscribe((resp: ProdutoModel[]) => {
       this.listaProdutos = resp
       console.log(this.nome2)
-      alert('Chama no deu bom')
     })
 
+  }
+
+  pesquisarProdutos(nome: string) {
+    this.router.navigate([`/produtos/search/${nome}`])
   }
 
 }

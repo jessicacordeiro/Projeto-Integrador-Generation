@@ -32,3 +32,11 @@ input{
     border-radius: 20px;
     background-color: #efefed;
 }
+
+.btnConfirm2{
+    border-radius: 25px;
+    border: none;
+    font-size: 20pt;
+    font-weight: bold;
+    background-color: #B2B2AE;
+}
