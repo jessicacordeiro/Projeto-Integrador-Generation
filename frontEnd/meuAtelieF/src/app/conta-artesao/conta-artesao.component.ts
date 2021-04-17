@@ -126,6 +126,9 @@ export class ContaArtesaoComponent implements OnInit {
     apagar(idproduto: number){
       this.produtoService.deleteProduto(idproduto,environment.id).subscribe((resp:ProdutoModel)=>{
         this.produtoModel = resp 
+        alert('Produto apagado com sucesso')
+        this.findByIdUser()
+        this.router.navigate(['/conta-artesao'])
       })
     }
 

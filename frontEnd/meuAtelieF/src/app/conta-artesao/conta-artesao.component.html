@@ -1,4 +1,4 @@
-<div class="container-fluid " style=" background-color:#e5dad0">
+<div class="container-fluid" style=" background-color:#e5dad0">
 
     <div class="row d-flex justify-content-center">
         <h1 class="mt-5 mb-5">SEJA BEM-VINDE ARTESÃO &#x2764;</h1>
@@ -14,6 +14,8 @@
                 data-target="#ExemploModalCentralizado">ANUNCIAR</button>
         </div>
     </div>
+
+    
 
     <div id="divBusca" style="margin-left: 200px;">
 
@@ -35,7 +37,7 @@
                         <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-sucess button fonte" 
                                 [routerLink]="['/edit',item.id]">EDITAR</button>
-                                <button type="button" class="btn btn-sucess button fonte" (click)='apagar(item.id)'
+                                <button type="button" class="btn btn-sucess button fonte ml-1" data-toggle="modal" data-target="#ExemploModalCentralizado1"
                                 >APAGAR</button>
                         </div>
                     </div>
@@ -74,6 +76,27 @@
         </div>
     </div>
 </div>
+
+<!-- ModalDelete -->
+<div class="modal fade" id="ExemploModalCentralizado1" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div *ngFor='let item of user.meusProdutos' class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content backgroundModal">
+        <div class="modal-body text-center mt-3">
+          <p class="text-center">Deseja realmente apagar esse produto?</p>
+        </div>
+        <div class="modal-footer d-flex justify-content-center mb-2">
+          <button type="button" class="btn button-radius fonte text-center" data-dismiss="modal">FECHAR</button>
+          <button type="button" class="btn button-radius fonte text-center" (click)='apagar(item.id)' data-dismiss="modal">APAGAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ModalDelete -->
+
+
+
+
+
 
 
 

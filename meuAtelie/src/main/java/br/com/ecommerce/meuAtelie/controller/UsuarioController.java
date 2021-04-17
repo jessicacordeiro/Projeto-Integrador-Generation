@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ecommerce.meuAtelie.model.ProdutoModel;
 import br.com.ecommerce.meuAtelie.model.UsuarioLogin;
 import br.com.ecommerce.meuAtelie.model.UsuarioModel;
+import br.com.ecommerce.meuAtelie.repository.ProdutoRepository;
 import br.com.ecommerce.meuAtelie.repository.UsuarioRepository;
 import br.com.ecommerce.meuAtelie.service.UsuarioService;
 
@@ -30,6 +31,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private ProdutoRepository produtoRepository;
 	
 	@Autowired
 	private UsuarioService usuarioService;
@@ -89,18 +93,18 @@ public class UsuarioController {
 	}
 	
 	@DeleteMapping("/produto/delete/{id_Produto}/{id_Usuario}")
-	public ResponseEntity<?> removerProduto(
+	public ResponseEntity<Object> removerProduto(
 			@PathVariable(value = "id_Produto") Long idProduto,
 			@PathVariable(value = "id_Usuario") Long idUsuario){
-		UsuarioModel retorno = usuarioService.deletarProduto(idProduto, idUsuario);
-		if(retorno == null) {
-			return new ResponseEntity<String>("Produto ou Usuario invalido", HttpStatus.NO_CONTENT);
+		Optional<UsuarioModel> retorno = usuarioService.deletarProduto(idProduto, idUsuario);
+		if(!retorno.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Produto ou Usuario invalido");
 		}
-		return new ResponseEntity<UsuarioModel>(retorno, HttpStatus.ACCEPTED);
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(produtoRepository.findAll());
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable long id) {
+	public void delete(@PathVariable Long id) {
 		usuarioRepository.deleteById(id);
 	}
 
