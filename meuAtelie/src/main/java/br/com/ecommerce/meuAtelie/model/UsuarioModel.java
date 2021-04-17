@@ -50,11 +50,11 @@ public class UsuarioModel {
 	@NotNull
 	private String senha;
 	
-	@OneToMany(mappedBy = "criadoPor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "criadoPor", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JsonIgnoreProperties("criadoPor")
 	private List<ProdutoModel> meusProdutos = new ArrayList<>();
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JoinTable(
 	  name = "tb_compras", 
 	  joinColumns = @JoinColumn(name = "comprador_id"), 

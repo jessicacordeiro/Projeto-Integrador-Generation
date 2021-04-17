@@ -84,7 +84,7 @@ public class UsuarioService {
 	}
 	
 	// Remover um produto
-	public UsuarioModel deletarProduto(Long idProduto, Long idUsuario) {
+	public Optional<UsuarioModel> deletarProduto(Long idProduto, Long idUsuario) {
 		Optional<UsuarioModel> usuarioExistente = usuarioRepository.findById(idUsuario);
 		Optional<ProdutoModel> produtoExistente = produtoRepository.findById(idProduto);
 		
@@ -92,9 +92,9 @@ public class UsuarioService {
 			produtoExistente.get().setCriadoPor(null);
 			produtoRepository.save(produtoExistente.get());
 			produtoRepository.deleteById(produtoExistente.get().getId());
-			return usuarioRepository.findById(usuarioExistente.get().getId()).get();
+			return usuarioRepository.findById(idUsuario);
 		}
-		return null;
+		return Optional.empty();
 	}
 		
 }
