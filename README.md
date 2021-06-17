@@ -46,7 +46,7 @@ O protótipo da aplicação está disponível no Canva: [WIREFRAME](https://www.
 IDE: Visual Studio Code, MySQL Workbench, Eclipse IDE, Postman;
 - [x] Linguagem de programação: Java, Javascript, HTML;
 - [x] Linguagem Cascading Style Sheet: CSS;
-- [x] Framework: Bootstrap, Angular.
+- [x] Framework: Bootstrap, Angular e Spring.
 - [x] Deploy: Heroku [Link do site final](https://meuatelie.herokuapp.com/home)
 
 -- BSM: Orientação ao futuro, responsabilidade pessoal, mentalidade de crescimento, persistência, trabalho em equipe, atenção ao detalhe, proatividade e comunicação.
